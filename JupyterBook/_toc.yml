@@ -1,0 +1,27 @@
+format: jb-book
+root: intro
+parts:
+  - caption: 1. Create a Collection
+    chapters:
+      - file: 1. Create a Collection/Create a Collection
+      - file: 1. Create a Collection/*
+  - caption: 2. Share a Collection
+    chapters:
+      - file: 2. Share a Collection/Share a Collection
+      - file: 2. Share a Collection/*
+  - caption: 3. Create an Image Set
+    chapters:
+      - file: 3. Create an Image Set/Create an Image Set
+      - file: 3. Create an Image Set/*
+  - caption: 4. Annotate an Image Set
+    chapters:
+      - file: 4. Annotate an Image Set/Annotate an Image Set
+      - file: 4. Annotate an Image Set/*
+  - caption: 5. Publish
+    chapters:
+      - file: 5. Publish/Publish
+      - file: 5. Publish/*
+  - caption: 6. Permissions Guidelines
+    chapters:
+      - file: 6. Permissions Guidelines/Permissions Guidelines
+      - file: 6. Permissions Guidelines/*
