@@ -1,27 +1,18 @@
 format: jb-book
 root: intro
 parts:
-  - caption: 1. Create a Collection
+  - caption: Heading 1
     chapters:
-      - file: 1. Create a Collection/Create a Collection
-      - file: 1. Create a Collection/*
-  - caption: 2. Share a Collection
+      - file: Heading 1/ap1
+      - file: Heading 1/ex1
+      - file: Heading 1/*
+  - caption: Heading 2
     chapters:
-      - file: 2. Share a Collection/Share a Collection
-      - file: 2. Share a Collection/*
-  - caption: 3. Create an Image Set
+      - file: Heading 2/ex2
+      - file: Heading 2/ex3
+      - file: Heading 2/ex4
+      - file: Heading 2/*
+  - caption: Heading 3
     chapters:
-      - file: 3. Create an Image Set/Create an Image Set
-      - file: 3. Create an Image Set/*
-  - caption: 4. Annotate an Image Set
-    chapters:
-      - file: 4. Annotate an Image Set/Annotate an Image Set
-      - file: 4. Annotate an Image Set/*
-  - caption: 5. Publish
-    chapters:
-      - file: 5. Publish/Publish
-      - file: 5. Publish/*
-  - caption: 6. Permissions Guidelines
-    chapters:
-      - file: 6. Permissions Guidelines/Permissions Guidelines
-      - file: 6. Permissions Guidelines/*
+      - file: Heading 3/ex7
+      - file: Heading 3/*
