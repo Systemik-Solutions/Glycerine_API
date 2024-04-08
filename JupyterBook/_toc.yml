@@ -3,8 +3,8 @@ root: intro
 parts:
   - caption: Heading 1
     chapters:
-      - file: Heading 1/System requirements
-      - file: Heading 1/ex1
+      - file: Heading 1/1. System requirements
+      - file: Heading 1/2. Installation
       - file: Heading 1/*
   - caption: Heading 2
     chapters:

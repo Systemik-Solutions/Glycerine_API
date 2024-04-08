@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>EX4 &#8212; My sample book</title>
+    <title>Database configurations &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Heading 2/ex4';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Heading 1/2. Installation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="AP3" href="../Heading%203/ex7.html" />
-    <link rel="prev" title="EX3" href="ex3.html" />
+    <link rel="next" title="Database configurations" href="../Heading%202/Installation.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="1.%20System%20requirements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,8 +169,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heading 1</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Heading%201/2.%20Installation.html">Database configurations</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Database configurations</a></li>
 
 
 
@@ -178,15 +178,15 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heading 2</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Database configurations</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Heading%202/Installation.html">Database configurations</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="ex3.html">EX3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">EX4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Heading%202/ex3.html">EX3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Heading%202/ex4.html">EX4</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heading 3</span></p>
 <ul class="nav bd-sidenav">
@@ -262,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FHeading 2/ex4.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FHeading 1/2. Installation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Heading 2/ex4.md" target="_blank"
+      <li><a href="../_sources/Heading 1/2. Installation.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -363,7 +363,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -374,11 +376,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>EX4</h1>
+    <h1>Database configurations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -388,9 +404,66 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ex4">
-<h1>EX4<a class="headerlink" href="#ex4" title="Permalink to this heading">#</a></h1>
-<p>Inline <code class="docutils literal notranslate"><span class="pre">code</span></code> can be included.</p>
+  <p>Clone this repository first and install the dependencies via composer.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>composer<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Once all the dependencies are installed, make a copy of file <code class="docutils literal notranslate"><span class="pre">.env.example</span></code> and name it as <code class="docutils literal notranslate"><span class="pre">.env</span></code>. Configurations then
+can be set up via environment variables in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<section id="database-configurations">
+<h1>Database configurations<a class="headerlink" href="#database-configurations" title="Permalink to this heading">#</a></h1>
+<p>An empty database should be created in MySQL or MariaDB. Then corresponding database information should be set to the
+configurations in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</section>
+<section id="image-server-configurations">
+<h1>Image server configurations<a class="headerlink" href="#image-server-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW server requires <a class="reference external" href="https://github.com/Systemik-Solutions/iaw-image-server">IAW Image Server</a> to provide IIIF image
+support. Once the IAW Image Server is running, set <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_URL</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to the base URL of the IAW
+Image Server.</p>
+<p>The IAW image server uses API tokens for authentications. Therefore, a user and an API token should be created in the
+IAW Image Server before setting up <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_API_TOKEN</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</section>
+<section id="authentication-configurations">
+<h1>Authentication configurations<a class="headerlink" href="#authentication-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW server uses <a class="reference external" href="https://laravel.com/docs/10.x/sanctum">Laravel Sanctum</a> to provide authentication. The following
+configurations should be set up in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SANCTUM_STATEFUL_DOMAINS</span></code>: The domain of the IAW application. e.g. <code class="docutils literal notranslate"><span class="pre">iaw.example.com</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_DOMAIN</span></code>: The root domain of the IAW application. e.g. <code class="docutils literal notranslate"><span class="pre">.example.com</span></code>.</p></li>
+</ul>
+<blockquote>
+<div><p>[!NOTE]
+The IAW server and application must be configured under the same root domain. For example, the domain name of the
+server is <code class="docutils literal notranslate"><span class="pre">iaw-server.example.com</span></code> and the domain name of the application is <code class="docutils literal notranslate"><span class="pre">iaw-app.example.com</span></code>. However, IAW
+app running in the built-in dev server does not require this as it uses proxy to redirect requests to the server.</p>
+</div></blockquote>
+</section>
+<section id="persistent-identifier-pid-configurations">
+<h1>Persistent Identifier (PID) configurations<a class="headerlink" href="#persistent-identifier-pid-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW uses <a class="reference external" href="https://w3id.org/">w3id</a> to provide persistent identifiers for images and publications. The following are
+the configurations related to PID:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_ENABLE</span></code>: Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to enable PID support. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_SECURE</span></code>: Whether to use HTTPS for PID. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_IMAGE_BASE</span></code>: The base PID for images. E.g. <code class="docutils literal notranslate"><span class="pre">w3id.org/iaw/images</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_PUBLICATION_BASE</span></code>: The base PID for publications. E.g. <code class="docutils literal notranslate"><span class="pre">w3id.org/iaw/publications</span></code>.</p></li>
+</ul>
+</section>
+<section id="generating-the-encryption-key">
+<h1>Generating the encryption key<a class="headerlink" href="#generating-the-encryption-key" title="Permalink to this heading">#</a></h1>
+<p>Laravel requires an encryption key from the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. To generate the key, use the following artisan command and it
+will populate the <code class="docutils literal notranslate"><span class="pre">APP_KEY</span></code> variable in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>key:generate
+</pre></div>
+</div>
+</section>
+<section id="migrating-the-database">
+<h1>Migrating the database<a class="headerlink" href="#migrating-the-database" title="Permalink to this heading">#</a></h1>
+<p>Once the database configurations are configured in the <code class="docutils literal notranslate"><span class="pre">.env</span></code>, the structure and default data should be created in the
+database by running the artisan command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>migrate<span class="w"> </span>--seed
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -406,7 +479,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./Heading 2"
+            path: "./Heading 1"
         },
         predefinedOutput: true
     }
@@ -424,20 +497,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ex3.html"
+       href="1.%20System%20requirements.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">EX3</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Heading%203/ex7.html"
+       href="../Heading%202/Installation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">AP3</p>
+        <p class="prev-next-title">Database configurations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -447,6 +520,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
