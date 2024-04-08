@@ -15,4 +15,5 @@ parts:
       - file: Server API/4. Responses
       - file: Server API/5. Users
       - file: Server API/6. Collections
+      - file: Server API/7. Image Sets
       - file: Server API/*
