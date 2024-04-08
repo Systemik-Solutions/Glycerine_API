@@ -9,13 +9,7 @@ parts:
       - file: Glycerine Image Annotation Workbench (IAW) Server/*
   - caption: Server API
     chapters:
-      - file: Server API/1. Intro
-      - file: Server API/10. Annotations
-      - file: Server API/11. Publishing
-      - file: Server API/12. Sharing
-      - file: Server API/13. Search
-      - file: Server API/14. Response
-      - file: Server API/15. Miscellaneous
+      - file: Server API/1. Introduction
       - file: Server API/2. Authentication
       - file: Server API/3. Usages
       - file: Server API/4. Responses
@@ -24,4 +18,10 @@ parts:
       - file: Server API/7. Image Sets
       - file: Server API/8. Images
       - file: Server API/9. Annotation Sets
+      - file: Server API/9a. Annotations
+      - file: Server API/9b. Publishing
+      - file: Server API/9c. Sharing
+      - file: Server API/9d. Search
+      - file: Server API/9e. Response
+      - file: Server API/9f. Miscellaneous
       - file: Server API/*
