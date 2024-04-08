@@ -1,7 +1,6 @@
 # About the Glycerine API
 
-test
-
+Explore the contents below to see our developer documentation for the API.
 
 ```{tableofcontents}
 ```
