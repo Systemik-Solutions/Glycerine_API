@@ -17,4 +17,5 @@ parts:
       - file: Server API/6. Collections
       - file: Server API/7. Image Sets
       - file: Server API/8. Images
+      - file: Server API/9. Annotation Sets
       - file: Server API/*
