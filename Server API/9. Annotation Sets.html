@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Image object &#8212; My sample book</title>
+    <title>Annotation set object &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/8. Images';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/9. Annotation Sets';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Annotation set object" href="9.%20Annotation%20Sets.html" />
-    <link rel="prev" title="Image Set object" href="7.%20Image%20Sets.html" />
+    <link rel="prev" title="Image object" href="8.%20Images.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.%20Images.html">Image object</a></li>
 
 
 
@@ -203,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation set object</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Annotation set object</a></li>
 
 
 
@@ -280,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/8. Images.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/9. Annotation Sets.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +309,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Server API/8. Images.md" target="_blank"
+      <li><a href="../_sources/Server API/9. Annotation Sets.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -394,7 +393,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Image object</h1>
+    <h1>Annotation set object</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,41 +403,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Annotation set object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotation-sets">Get all annotation sets</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation-set">Create an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation-set">Get an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation-set">Update an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation-set">Delete an annotation set</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 </ul>
@@ -453,30 +443,37 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="image-object">
-<h1>Image object<a class="headerlink" href="#image-object" title="Permalink to this heading">#</a></h1>
-<p>Each image returned from the API is a JSON object with the following properties:</p>
+  <section id="annotation-set-object">
+<h1>Annotation set object<a class="headerlink" href="#annotation-set-object" title="Permalink to this heading">#</a></h1>
+<p>Each annotation set returned from the API is a JSON object with the following properties:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: The description of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uri</span></code>: (read only) The URI of the image. If the image is hosted internally be the IAW Image Server, the URI is under
-a custom scheme <code class="docutils literal notranslate"><span class="pre">image-server://</span></code>. Otherwise, the URI is the base URL of the  IIIF image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: The type of the image. It will always be <code class="docutils literal notranslate"><span class="pre">iiif</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: The source of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: (read only) The ID of the image set which the image belongs to. It could be <code class="docutils literal notranslate"><span class="pre">null</span></code> if the image is not
-in any image set.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">iiif_url</span></code>: (read only) The base URL of the IIIF image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: (read only) The datetime when the image is created.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: (read only) The datetime when the image is updated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: The description of the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">owner</span></code>: (read only) The owner of the annotation set. The value is a <span class="xref myst">user object</span>
+which contains the properties of the owner.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: (read only) The ID of the image set which the annotation set belongs to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">published_at</span></code>: (read only) The datetime when the annotation set is published.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default_vocabulary</span></code>: The ID of the default vocabulary used for tagging annotations in the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: (read only) The datetime when the annotation set is created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: (read only) The datetime when the annotation set is updated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policies</span></code>: (read only) The policies applied to the annotation set for the current user. The value is an array of
+permission names which the current user has on the annotation set. The permission names are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code>: The user can view the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write</span></code>: The user can update the annotation set properties and create annotations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manage</span></code>: The user can publish the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete</span></code>: The user can delete the annotation set.</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="get-all-images">
-<h1>Get all images<a class="headerlink" href="#get-all-images" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">images</span>
+<section id="get-all-annotation-sets">
+<h1>Get all annotation sets<a class="headerlink" href="#get-all-annotation-sets" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span>
 </pre></div>
 </div>
-<p>Get all images in an image set.</p>
+<p>Get all annotation sets in an image set.</p>
 <section id="url-parameters">
 <h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
@@ -485,123 +482,98 @@ in any image set.</p></li>
 </section>
 <section id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
-<p>An array of image objects.</p>
+<p>An array of annotation set objects.</p>
 </section>
 </section>
-<section id="create-from-a-local-image">
-<h1>Create from a local image<a class="headerlink" href="#create-from-a-local-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">local</span>
+<section id="create-an-annotation-set">
+<h1>Create an annotation set<a class="headerlink" href="#create-an-annotation-set" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span>
 </pre></div>
 </div>
-<p>Create an image from a local image file.</p>
-<blockquote>
-<div><p>[!NOTE]
-This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div></blockquote>
+<p>Create an annotation set in an image set.</p>
+<section id="id1">
+<h2>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+</ul>
+</section>
 <section id="request">
 <h2>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h2>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the image file, set the content of the image file encoded in base64 to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image
-object.</p>
-</section>
-<section id="id1">
-<h2>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>The image object of the newly created image.</p>
-</section>
-</section>
-<section id="create-from-a-remote-image">
-<h1>Create from a remote image<a class="headerlink" href="#create-from-a-remote-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">remote</span>
-</pre></div>
-</div>
-<p>Create an image from a remote image file.</p>
-<blockquote>
-<div><p>[!NOTE]
-This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div></blockquote>
-<section id="id2">
-<h2>Request<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the image file, set the URL of the remote image file to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
-</section>
-<section id="id3">
-<h2>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<p>The image object of the newly created image.</p>
-</section>
-</section>
-<section id="create-from-an-external-iiif-image">
-<h1>Create from an external IIIF image<a class="headerlink" href="#create-from-an-external-iiif-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">iiif</span>
-</pre></div>
-</div>
-<p>Create an image from an external IIIF image.</p>
-<blockquote>
-<div><p>[!NOTE]
-This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div></blockquote>
-<section id="id4">
-<h2>Request<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the IIIF image, set the base URL of the IIIF image to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
-</section>
-<section id="id5">
-<h2>Response<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
-<p>The image object of the newly created image.</p>
-</section>
-</section>
-<section id="get-an-image">
-<h1>Get an image<a class="headerlink" href="#get-an-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Get an image by its ID.</p>
-<section id="id6">
-<h2>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>The request body should be an annotation set object used to create a new annotation set. Read only properties will be
+ignored.</p>
+<p>It also accepts a few additional properties in the annotation set object:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">published</span></code>: The publishing status of the annotation set. If it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the annotation set will be
+published. If it is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the annotation set will be unpublished.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>The annotation set object of the newly created annotation set.</p>
+</section>
+</section>
+<section id="get-an-annotation-set">
+<h1>Get an annotation set<a class="headerlink" href="#get-an-annotation-set" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Get an annotation set by its ID.</p>
+<section id="id3">
+<h2>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>The annotation set object of the queried annotation set.</p>
+</section>
+</section>
+<section id="update-an-annotation-set">
+<h1>Update an annotation set<a class="headerlink" href="#update-an-annotation-set" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Update an annotation set by its ID.</p>
+<section id="id5">
+<h2>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>Request<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>The request body should be an annotation set object used to update the annotation set. Read only properties will be
+ignored.</p>
+<p>It also accepts a few additional properties in the annotation set object:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">published</span></code>: The publishing status of the annotation set. If it is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the annotation set will be
+published. If it is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the annotation set will be unpublished.</p></li>
 </ul>
 </section>
 <section id="id7">
 <h2>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
-<p>The image object of the queried image.</p>
+<p>The annotation set object after the update.</p>
 </section>
 </section>
-<section id="update-an-image">
-<h1>Update an image<a class="headerlink" href="#update-an-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+<section id="delete-an-annotation-set">
+<h1>Delete an annotation set<a class="headerlink" href="#delete-an-annotation-set" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Update an image by its ID.</p>
+<p>Delete an annotation set by its ID.</p>
 <section id="id8">
 <h2>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
 </ul>
 </section>
 <section id="id9">
-<h2>Request<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
-<p>The request body should be an image object used to update the image. Read only properties will be ignored.</p>
-</section>
-<section id="id10">
-<h2>Response<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
-<p>The image object after the update.</p>
-</section>
-</section>
-<section id="delete-an-image">
-<h1>Delete an image<a class="headerlink" href="#delete-an-image" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Delete an image by its ID.</p>
-<section id="id11">
-<h2>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
-</ul>
-</section>
-<section id="id12">
-<h2>Response<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
-<p>The image object of the deleted image.</p>
+<h2>Response<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p>The annotation set object of the deleted annotation set.</p>
 </section>
 </section>
 
@@ -636,22 +608,13 @@ This API only creates an isolated image. To add the image to an image set, use t
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="7.%20Image%20Sets.html"
+       href="8.%20Images.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Image Set object</p>
+        <p class="prev-next-title">Image object</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="9.%20Annotation%20Sets.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Annotation set object</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -668,41 +631,32 @@ This API only creates an isolated image. To add the image to an image set, use t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Annotation set object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotation-sets">Get all annotation sets</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation-set">Create an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation-set">Get an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation-set">Update an annotation set</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation-set">Delete an annotation set</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 </ul>
