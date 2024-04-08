@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Database configurations &#8212; My sample book</title>
+    <title>Installation &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Glycerine Image Annotation Workbench (IAW) Server/3. Installation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../Server%20API/1.%20Intro.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="2.%20System%20requirements.html" />
+    <link rel="next" title="Introduction" href="../Server%20API/1.%20Intro.html" />
+    <link rel="prev" title="System requirements" href="2.%20System%20requirements.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,26 +170,15 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Glycerine Image Annotation Workbench (IAW) Server</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Database configurations</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="1.%20Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20System%20requirements.html">System requirements</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Server API</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Server%20API/10.%20Annotations.html">Annotation object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../Server%20API/11.%20Publishing.html">Get the information about a publication</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../Server%20API/1.%20Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Server%20API/10.%20Annotations.html">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Server%20API/11.%20Publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Server%20API/12.%20Sharing.html">Share a collection</a></li>
 
 
@@ -410,7 +399,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Database configurations</h1>
+    <h1>Installation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,14 +409,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-configurations">Database configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -438,19 +426,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>Clone this repository first and install the dependencies via composer.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<p>Clone this repository first and install the dependencies via composer.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>composer<span class="w"> </span>install
 </pre></div>
 </div>
 <p>Once all the dependencies are installed, make a copy of file <code class="docutils literal notranslate"><span class="pre">.env.example</span></code> and name it as <code class="docutils literal notranslate"><span class="pre">.env</span></code>. Configurations then
 can be set up via environment variables in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 <section id="database-configurations">
-<h1>Database configurations<a class="headerlink" href="#database-configurations" title="Permalink to this heading">#</a></h1>
+<h2>Database configurations<a class="headerlink" href="#database-configurations" title="Permalink to this heading">#</a></h2>
 <p>An empty database should be created in MySQL or MariaDB. Then corresponding database information should be set to the
 configurations in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 </section>
 <section id="image-server-configurations">
-<h1>Image server configurations<a class="headerlink" href="#image-server-configurations" title="Permalink to this heading">#</a></h1>
+<h2>Image server configurations<a class="headerlink" href="#image-server-configurations" title="Permalink to this heading">#</a></h2>
 <p>IAW server requires <a class="reference external" href="https://github.com/Systemik-Solutions/iaw-image-server">IAW Image Server</a> to provide IIIF image
 support. Once the IAW Image Server is running, set <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_URL</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to the base URL of the IAW
 Image Server.</p>
@@ -458,7 +448,7 @@ Image Server.</p>
 IAW Image Server before setting up <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_API_TOKEN</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 </section>
 <section id="authentication-configurations">
-<h1>Authentication configurations<a class="headerlink" href="#authentication-configurations" title="Permalink to this heading">#</a></h1>
+<h2>Authentication configurations<a class="headerlink" href="#authentication-configurations" title="Permalink to this heading">#</a></h2>
 <p>IAW server uses <a class="reference external" href="https://laravel.com/docs/10.x/sanctum">Laravel Sanctum</a> to provide authentication. The following
 configurations should be set up in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 <ul class="simple">
@@ -473,7 +463,7 @@ app running in the built-in dev server does not require this as it uses proxy to
 </div></blockquote>
 </section>
 <section id="persistent-identifier-pid-configurations">
-<h1>Persistent Identifier (PID) configurations<a class="headerlink" href="#persistent-identifier-pid-configurations" title="Permalink to this heading">#</a></h1>
+<h2>Persistent Identifier (PID) configurations<a class="headerlink" href="#persistent-identifier-pid-configurations" title="Permalink to this heading">#</a></h2>
 <p>IAW uses <a class="reference external" href="https://w3id.org/">w3id</a> to provide persistent identifiers for images and publications. The following are
 the configurations related to PID:</p>
 <ul class="simple">
@@ -484,7 +474,7 @@ the configurations related to PID:</p>
 </ul>
 </section>
 <section id="generating-the-encryption-key">
-<h1>Generating the encryption key<a class="headerlink" href="#generating-the-encryption-key" title="Permalink to this heading">#</a></h1>
+<h2>Generating the encryption key<a class="headerlink" href="#generating-the-encryption-key" title="Permalink to this heading">#</a></h2>
 <p>Laravel requires an encryption key from the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. To generate the key, use the following artisan command and it
 will populate the <code class="docutils literal notranslate"><span class="pre">APP_KEY</span></code> variable in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>key:generate
@@ -492,12 +482,13 @@ will populate the <code class="docutils literal notranslate"><span class="pre">A
 </div>
 </section>
 <section id="migrating-the-database">
-<h1>Migrating the database<a class="headerlink" href="#migrating-the-database" title="Permalink to this heading">#</a></h1>
+<h2>Migrating the database<a class="headerlink" href="#migrating-the-database" title="Permalink to this heading">#</a></h2>
 <p>Once the database configurations are configured in the <code class="docutils literal notranslate"><span class="pre">.env</span></code>, the structure and default data should be created in the
 database by running the artisan command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>migrate<span class="w"> </span>--seed
 </pre></div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -536,7 +527,7 @@ database by running the artisan command:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">System requirements</p>
       </div>
     </a>
     <a class="right-next"
@@ -544,7 +535,7 @@ database by running the artisan command:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -563,14 +554,13 @@ database by running the artisan command:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-configurations">Database configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
