@@ -4,8 +4,8 @@ parts:
   - caption: Glycerine Image Annotation Workbench (IAW) Server
     chapters:
       - file: Glycerine Image Annotation Workbench (IAW) Server/1. Intro
-      - file: Glycerine Image Annotation Workbench (IAW) Server/1. System requirements
-      - file: Glycerine Image Annotation Workbench (IAW) Server/2. Installation
+      - file: Glycerine Image Annotation Workbench (IAW) Server/2. System requirements
+      - file: Glycerine Image Annotation Workbench (IAW) Server/3. Installation
       - file: Glycerine Image Annotation Workbench (IAW) Server/*
   - caption: Server API
     chapters:
