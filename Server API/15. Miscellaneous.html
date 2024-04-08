@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Get all languages &#8212; My sample book</title>
+    <title>Miscellaneous &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/15. Miscellaneous';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create an API token" href="2.%20Authentication.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="14.%20Response.html" />
+    <link rel="next" title="Authentication" href="2.%20Authentication.html" />
+    <link rel="prev" title="Response" href="14.%20Response.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,38 +180,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="10.%20Annotations.html">Annotations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Sharing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Get all languages</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Create an API token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">User object</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collection object</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Set object</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="8.%20Images.html">Image object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation set object</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="13.%20Search.html">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14.%20Response.html">Response</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Miscellaneous</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Usages.html">Usages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Responses.html">Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.%20Images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation Sets</a></li>
 </ul>
 
     </div>
@@ -397,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get all languages</h1>
+    <h1>Miscellaneous</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,17 +386,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get all languages</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-languages">Get all languages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-json-requests">Proxy JSON requests</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-json-requests">Proxy JSON requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -428,14 +406,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="get-all-languages">
-<h1>Get all languages<a class="headerlink" href="#get-all-languages" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="miscellaneous">
+<h1>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading">#</a></h1>
+<section id="get-all-languages">
+<h2>Get all languages<a class="headerlink" href="#get-all-languages" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">languages</span>
 </pre></div>
 </div>
 <p>Get all supported languages.</p>
 <section id="response">
-<h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
 <p>An array of language objects with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">code</span></code>: The code of the language.</p></li>
@@ -447,20 +427,21 @@ document.write(`
 </section>
 </section>
 <section id="proxy-json-requests">
-<h1>Proxy JSON requests<a class="headerlink" href="#proxy-json-requests" title="Permalink to this heading">#</a></h1>
+<h2>Proxy JSON requests<a class="headerlink" href="#proxy-json-requests" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">proxy</span><span class="o">/</span><span class="n">json</span>
 </pre></div>
 </div>
 <p>Proxy a JSON request to an external URL. This is useful when some external API doesn’t support CORS.</p>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h2>
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: The URL of the external API.</p></li>
 </ul>
 </section>
 <section id="id1">
-<h2>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>The response of the external API in JSON.</p>
+</section>
 </section>
 </section>
 
@@ -500,7 +481,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Response</p>
       </div>
     </a>
     <a class="right-next"
@@ -508,7 +489,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Create an API token</p>
+        <p class="prev-next-title">Authentication</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,17 +508,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get all languages</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-languages">Get all languages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-json-requests">Proxy JSON requests</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proxy-json-requests">Proxy JSON requests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>

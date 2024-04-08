@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Search &#8212; My sample book</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/13. Search';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="14.%20Response.html" />
+    <link rel="next" title="Response" href="14.%20Response.html" />
     <link rel="prev" title="Sharing" href="12.%20Sharing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,43 +175,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/3.%20Installation.html">Installation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Server API</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10.%20Annotations.html">Annotations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15.%20Miscellaneous.html">Get all languages</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Create an API token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">User object</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collection object</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Set object</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="8.%20Images.html">Image object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation set object</a></li>
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14.%20Response.html">Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15.%20Miscellaneous.html">Miscellaneous</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Usages.html">Usages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Responses.html">Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.%20Images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation Sets</a></li>
 </ul>
 
     </div>
@@ -384,9 +363,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -397,19 +374,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Search</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -419,7 +388,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">collections</span><span class="o">/</span><span class="p">{</span><span class="n">collection_id</span><span class="p">}</span><span class="o">/</span><span class="n">search</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="search">
+<h1>Search<a class="headerlink" href="#search" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">collections</span><span class="o">/</span><span class="p">{</span><span class="n">collection_id</span><span class="p">}</span><span class="o">/</span><span class="n">search</span>
 </pre></div>
 </div>
 <p>This will search entities from a given collection based on the query parameters from the request URL. The <code class="docutils literal notranslate"><span class="pre">type</span></code>
@@ -484,6 +455,7 @@ concatenate them with a comma or use the array notation. For example, to specify
 </tr>
 </tbody>
 </table>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -529,7 +501,7 @@ concatenate them with a comma or use the array notation. For example, to specify
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Response</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -539,20 +511,6 @@ concatenate them with a comma or use the array notation. For example, to specify
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
