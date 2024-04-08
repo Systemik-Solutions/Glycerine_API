@@ -62,11 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/3. Usages';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/4. Responses';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="4.%20Responses.html" />
-    <link rel="prev" title="Create an API token" href="2.%20Authentication.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="3.%20Usages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -251,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/3. Usages.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/4. Responses.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Server API/3. Usages.md" target="_blank"
+      <li><a href="../_sources/Server API/4. Responses.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,8 +386,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>The <code class="docutils literal notranslate"><span class="pre">Accept</span></code> header should be specified as <code class="docutils literal notranslate"><span class="pre">application/json</span></code> for each API request. All API endpoints start with URL
-prefix <code class="docutils literal notranslate"><span class="pre">api</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">/api/collections</span></code>.</p>
+  <p>The responses of API requests are in JSON format if the request header <code class="docutils literal notranslate"><span class="pre">Accept:</span> <span class="pre">application/json</span></code> is specified. It
+returns HTTP status code <code class="docutils literal notranslate"><span class="pre">200</span></code> if the request is successful. Otherwise, it returns HTTP status code such as <code class="docutils literal notranslate"><span class="pre">400</span></code> or
+<code class="docutils literal notranslate"><span class="pre">500</span></code> with the body of the error messages.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error message summary&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;error 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;Details about error 1&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;error 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;Details about error 2&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -421,22 +434,13 @@ prefix <code class="docutils literal notranslate"><span class="pre">api</span></
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="2.%20Authentication.html"
+       href="3.%20Usages.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Create an API token</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="4.%20Responses.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">&lt;no title&gt;</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
