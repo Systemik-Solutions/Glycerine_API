@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Image object &#8212; My sample book</title>
+    <title>Images &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/8. Images';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Annotation set object" href="9.%20Annotation%20Sets.html" />
-    <link rel="prev" title="Image Set object" href="7.%20Image%20Sets.html" />
+    <link rel="next" title="Annotation Sets" href="9.%20Annotation%20Sets.html" />
+    <link rel="prev" title="Image Sets" href="7.%20Image%20Sets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,38 +180,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="10.%20Annotations.html">Annotations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Sharing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="15.%20Miscellaneous.html">Get all languages</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Create an API token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">User object</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collection object</a></li>
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Set object</a></li>
-
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation set object</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="13.%20Search.html">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14.%20Response.html">Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15.%20Miscellaneous.html">Miscellaneous</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Authentication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.%20Usages.html">Usages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.%20Responses.html">Responses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.%20Image%20Sets.html">Image Sets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9.%20Annotation%20Sets.html">Annotation Sets</a></li>
 </ul>
 
     </div>
@@ -397,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Image object</h1>
+    <h1>Images</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,45 +386,44 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-object">Image object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -456,8 +434,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="image-object">
-<h1>Image object<a class="headerlink" href="#image-object" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="images">
+<h1>Images<a class="headerlink" href="#images" title="Permalink to this heading">#</a></h1>
+<section id="image-object">
+<h2>Image object<a class="headerlink" href="#image-object" title="Permalink to this heading">#</a></h2>
 <p>Each image returned from the API is a JSON object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the image.</p></li>
@@ -475,24 +455,24 @@ in any image set.</p></li>
 </ul>
 </section>
 <section id="get-all-images">
-<h1>Get all images<a class="headerlink" href="#get-all-images" title="Permalink to this heading">#</a></h1>
+<h2>Get all images<a class="headerlink" href="#get-all-images" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">images</span>
 </pre></div>
 </div>
 <p>Get all images in an image set.</p>
 <section id="url-parameters">
-<h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
 </ul>
 </section>
 <section id="response">
-<h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
 <p>An array of image objects.</p>
 </section>
 </section>
 <section id="create-from-a-local-image">
-<h1>Create from a local image<a class="headerlink" href="#create-from-a-local-image" title="Permalink to this heading">#</a></h1>
+<h2>Create from a local image<a class="headerlink" href="#create-from-a-local-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">local</span>
 </pre></div>
 </div>
@@ -502,18 +482,18 @@ in any image set.</p></li>
 This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
 </div></blockquote>
 <section id="request">
-<h2>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
 <p>To specify the image file, set the content of the image file encoded in base64 to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image
 object.</p>
 </section>
 <section id="id1">
-<h2>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>The image object of the newly created image.</p>
 </section>
 </section>
 <section id="create-from-a-remote-image">
-<h1>Create from a remote image<a class="headerlink" href="#create-from-a-remote-image" title="Permalink to this heading">#</a></h1>
+<h2>Create from a remote image<a class="headerlink" href="#create-from-a-remote-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">remote</span>
 </pre></div>
 </div>
@@ -523,17 +503,17 @@ object.</p>
 This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
 </div></blockquote>
 <section id="id2">
-<h2>Request<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
 <p>To specify the image file, set the URL of the remote image file to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
 </section>
 <section id="id3">
-<h2>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>The image object of the newly created image.</p>
 </section>
 </section>
 <section id="create-from-an-external-iiif-image">
-<h1>Create from an external IIIF image<a class="headerlink" href="#create-from-an-external-iiif-image" title="Permalink to this heading">#</a></h1>
+<h2>Create from an external IIIF image<a class="headerlink" href="#create-from-an-external-iiif-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">iiif</span>
 </pre></div>
 </div>
@@ -543,68 +523,69 @@ This API only creates an isolated image. To add the image to an image set, use t
 This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
 </div></blockquote>
 <section id="id4">
-<h2>Request<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
 <p>To specify the IIIF image, set the base URL of the IIIF image to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
 </section>
 <section id="id5">
-<h2>Response<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>The image object of the newly created image.</p>
 </section>
 </section>
 <section id="get-an-image">
-<h1>Get an image<a class="headerlink" href="#get-an-image" title="Permalink to this heading">#</a></h1>
+<h2>Get an image<a class="headerlink" href="#get-an-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Get an image by its ID.</p>
 <section id="id6">
-<h2>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
 </ul>
 </section>
 <section id="id7">
-<h2>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>The image object of the queried image.</p>
 </section>
 </section>
 <section id="update-an-image">
-<h1>Update an image<a class="headerlink" href="#update-an-image" title="Permalink to this heading">#</a></h1>
+<h2>Update an image<a class="headerlink" href="#update-an-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Update an image by its ID.</p>
 <section id="id8">
-<h2>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
 </ul>
 </section>
 <section id="id9">
-<h2>Request<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an image object used to update the image. Read only properties will be ignored.</p>
 </section>
 <section id="id10">
-<h2>Response<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <p>The image object after the update.</p>
 </section>
 </section>
 <section id="delete-an-image">
-<h1>Delete an image<a class="headerlink" href="#delete-an-image" title="Permalink to this heading">#</a></h1>
+<h2>Delete an image<a class="headerlink" href="#delete-an-image" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Delete an image by its ID.</p>
 <section id="id11">
-<h2>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
 </ul>
 </section>
 <section id="id12">
-<h2>Response<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <p>The image object of the deleted image.</p>
+</section>
 </section>
 </section>
 
@@ -644,7 +625,7 @@ This API only creates an isolated image. To add the image to an image set, use t
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Image Set object</p>
+        <p class="prev-next-title">Image Sets</p>
       </div>
     </a>
     <a class="right-next"
@@ -652,7 +633,7 @@ This API only creates an isolated image. To add the image to an image set, use t
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Annotation set object</p>
+        <p class="prev-next-title">Annotation Sets</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -671,45 +652,44 @@ This API only creates an isolated image. To add the image to an image set, use t
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Image object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-object">Image object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
