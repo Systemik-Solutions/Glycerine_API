@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Get the information about a publication &#8212; My sample book</title>
+    <title>Publishing &#8212; My sample book</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Share a collection" href="12.%20Sharing.html" />
-    <link rel="prev" title="Annotation object" href="10.%20Annotations.html" />
+    <link rel="prev" title="Annotations" href="10.%20Annotations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,26 +170,15 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Glycerine Image Annotation Workbench (IAW) Server</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/3.%20Installation.html">Database configurations</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/1.%20Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/2.%20System%20requirements.html">System requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/3.%20Installation.html">Installation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Server API</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10.%20Annotations.html">Annotation object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Get the information about a publication</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="1.%20Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10.%20Annotations.html">Annotations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Share a collection</a></li>
 
 
@@ -410,7 +399,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get the information about a publication</h1>
+    <h1>Publishing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,23 +409,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get the information about a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-information-about-a-publication">Get the information about a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -447,20 +435,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="get-the-information-about-a-publication">
-<h1>Get the information about a publication<a class="headerlink" href="#get-the-information-about-a-publication" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="publishing">
+<h1>Publishing<a class="headerlink" href="#publishing" title="Permalink to this heading">#</a></h1>
+<section id="get-the-information-about-a-publication">
+<h2>Get the information about a publication<a class="headerlink" href="#get-the-information-about-a-publication" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">info</span>
 </pre></div>
 </div>
 <p>Get the general information about the publication.</p>
 <section id="url-parameters">
-<h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
 </ul>
 </section>
 <section id="response">
-<h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
 <p>An object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the publication.</p></li>
@@ -472,19 +462,19 @@ document.write(`
 </section>
 </section>
 <section id="get-the-data-of-a-publication">
-<h1>Get the data of a publication<a class="headerlink" href="#get-the-data-of-a-publication" title="Permalink to this heading">#</a></h1>
+<h2>Get the data of a publication<a class="headerlink" href="#get-the-data-of-a-publication" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">json</span>
 </pre></div>
 </div>
 <p>Get a published image set data by its publication ID.</p>
 <section id="id1">
-<h2>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
 </ul>
 </section>
 <section id="id2">
-<h2>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>The image set object of the published image set.</p>
 <p>Additionally, the following properties are included in the image set object:</p>
 <ul class="simple">
@@ -496,20 +486,21 @@ of the image set. Each annotation set object also has the property <code class="
 </section>
 </section>
 <section id="get-the-iiif-manifest-of-a-publication">
-<h1>Get the IIIF manifest of a publication<a class="headerlink" href="#get-the-iiif-manifest-of-a-publication" title="Permalink to this heading">#</a></h1>
+<h2>Get the IIIF manifest of a publication<a class="headerlink" href="#get-the-iiif-manifest-of-a-publication" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">manifest</span>
 </pre></div>
 </div>
 <p>Get the IIIF manifest of a published image set by its publication ID.</p>
 <section id="id3">
-<h2>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>The IIIF manifest of the published image set.</p>
+</section>
 </section>
 </section>
 
@@ -549,7 +540,7 @@ of the image set. Each annotation set object also has the property <code class="
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Annotation object</p>
+        <p class="prev-next-title">Annotations</p>
       </div>
     </a>
     <a class="right-next"
@@ -576,23 +567,22 @@ of the image set. Each annotation set object also has the property <code class="
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get the information about a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-information-about-a-publication">Get the information about a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>

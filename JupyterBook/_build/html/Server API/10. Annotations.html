@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Annotation object &#8212; My sample book</title>
+    <title>Annotations &#8212; My sample book</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/10. Annotations';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Get the information about a publication" href="11.%20Publishing.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="1.%20Intro.html" />
+    <link rel="next" title="Publishing" href="11.%20Publishing.html" />
+    <link rel="prev" title="Introduction" href="1.%20Intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,26 +170,15 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Glycerine Image Annotation Workbench (IAW) Server</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/3.%20Installation.html">Database configurations</a></li>
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/1.%20Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/2.%20System%20requirements.html">System requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glycerine%20Image%20Annotation%20Workbench%20%28IAW%29%20Server/3.%20Installation.html">Installation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Server API</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Annotation object</a></li>
-
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Get the information about a publication</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="1.%20Intro.html">Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Publishing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Share a collection</a></li>
 
 
@@ -410,7 +399,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Annotation object</h1>
+    <h1>Annotations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,50 +409,49 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Annotation object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-format">General format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#title-field">Title field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description-field">Description field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-field">Link field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-field">Tag field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-field">Note field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution-field">Attribution field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-field">Date field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-color-field">Line color field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-object">Annotation object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-format">General format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#title-field">Title field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-field">Description field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-field">Link field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-field">Tag field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-field">Note field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution-field">Attribution field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-field">Date field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-color-field">Line color field</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotations">Get all annotations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotations">Get all annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation">Get an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation">Get an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -474,8 +462,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="annotation-object">
-<h1>Annotation object<a class="headerlink" href="#annotation-object" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="annotations">
+<h1>Annotations<a class="headerlink" href="#annotations" title="Permalink to this heading">#</a></h1>
+<section id="annotation-object">
+<h2>Annotation object<a class="headerlink" href="#annotation-object" title="Permalink to this heading">#</a></h2>
 <p>Each annotation returned from the API is a JSON object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the annotation.</p></li>
@@ -489,7 +479,7 @@ document.write(`
 </ul>
 </section>
 <section id="annotation-target">
-<h1>Annotation target<a class="headerlink" href="#annotation-target" title="Permalink to this heading">#</a></h1>
+<h2>Annotation target<a class="headerlink" href="#annotation-target" title="Permalink to this heading">#</a></h2>
 <p>The target of an annotation is an object specified in the Web Annotation standard. For more information, please refer
 to the <a class="reference external" href="https://www.w3.org/TR/annotation-model/#specific-resources">Web Annotation Data Model</a>.</p>
 <p>Example:</p>
@@ -504,9 +494,9 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-mode
 </div>
 </section>
 <section id="annotation-fields">
-<h1>Annotation fields<a class="headerlink" href="#annotation-fields" title="Permalink to this heading">#</a></h1>
+<h2>Annotation fields<a class="headerlink" href="#annotation-fields" title="Permalink to this heading">#</a></h2>
 <section id="general-format">
-<h2>General format<a class="headerlink" href="#general-format" title="Permalink to this heading">#</a></h2>
+<h3>General format<a class="headerlink" href="#general-format" title="Permalink to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">fields</span></code> property of an annotation is an object with field names as keys. The value of each field is an object with
 the language codes as keys to support field values in multiple languages. The value of each language code is an object
 with the property <code class="docutils literal notranslate"><span class="pre">values</span></code> which is an array of field values in that language. For example:</p>
@@ -554,7 +544,7 @@ with the property <code class="docutils literal notranslate"><span class="pre">v
 </div>
 </section>
 <section id="language-codes">
-<h2>Language codes<a class="headerlink" href="#language-codes" title="Permalink to this heading">#</a></h2>
+<h3>Language codes<a class="headerlink" href="#language-codes" title="Permalink to this heading">#</a></h3>
 <p>The following is the list of supported language codes:</p>
 <table class="table">
 <thead>
@@ -654,15 +644,15 @@ with the property <code class="docutils literal notranslate"><span class="pre">v
 </table>
 </section>
 <section id="title-field">
-<h2>Title field<a class="headerlink" href="#title-field" title="Permalink to this heading">#</a></h2>
+<h3>Title field<a class="headerlink" href="#title-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">title</span></code> field is a string which is the title of the annotation.</p>
 </section>
 <section id="description-field">
-<h2>Description field<a class="headerlink" href="#description-field" title="Permalink to this heading">#</a></h2>
+<h3>Description field<a class="headerlink" href="#description-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">description</span></code> field is a string which is the description of the annotation.</p>
 </section>
 <section id="link-field">
-<h2>Link field<a class="headerlink" href="#link-field" title="Permalink to this heading">#</a></h2>
+<h3>Link field<a class="headerlink" href="#link-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">link</span></code> field is an object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: The URL of the link.</p></li>
@@ -670,7 +660,7 @@ with the property <code class="docutils literal notranslate"><span class="pre">v
 </ul>
 </section>
 <section id="tag-field">
-<h2>Tag field<a class="headerlink" href="#tag-field" title="Permalink to this heading">#</a></h2>
+<h3>Tag field<a class="headerlink" href="#tag-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">tag</span></code> field is an object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">vocabulary_id</span></code>: The ID of the vocabulary which the tag belongs to.</p></li>
@@ -693,118 +683,119 @@ of the term. For example:</p></li>
 </div>
 </section>
 <section id="note-field">
-<h2>Note field<a class="headerlink" href="#note-field" title="Permalink to this heading">#</a></h2>
+<h3>Note field<a class="headerlink" href="#note-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">note</span></code> field is a string which is the note of the annotation.</p>
 </section>
 <section id="attribution-field">
-<h2>Attribution field<a class="headerlink" href="#attribution-field" title="Permalink to this heading">#</a></h2>
+<h3>Attribution field<a class="headerlink" href="#attribution-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">attribution</span></code> field is a string which is the attribution of the annotation.</p>
 </section>
 <section id="date-field">
-<h2>Date field<a class="headerlink" href="#date-field" title="Permalink to this heading">#</a></h2>
+<h3>Date field<a class="headerlink" href="#date-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">date</span></code> field is a string in the format of <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> which is the date of the annotation. For example:
 <code class="docutils literal notranslate"><span class="pre">2021-01-01</span></code>.</p>
 </section>
 <section id="line-color-field">
-<h2>Line color field<a class="headerlink" href="#line-color-field" title="Permalink to this heading">#</a></h2>
+<h3>Line color field<a class="headerlink" href="#line-color-field" title="Permalink to this heading">#</a></h3>
 <p>A value of the <code class="docutils literal notranslate"><span class="pre">line_color</span></code> field is a string which is the outline color of the annotation. The value should be one of
 the values of <code class="docutils literal notranslate"><span class="pre">Light</span></code>, <code class="docutils literal notranslate"><span class="pre">Medium</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dark</span></code>.</p>
 </section>
 </section>
 <section id="get-all-annotations">
-<h1>Get all annotations<a class="headerlink" href="#get-all-annotations" title="Permalink to this heading">#</a></h1>
+<h2>Get all annotations<a class="headerlink" href="#get-all-annotations" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span>
 </pre></div>
 </div>
 <p>Get all annotations in an annotation set.</p>
 <section id="url-parameters">
-<h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
 </ul>
 </section>
 <section id="response">
-<h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
 <p>An array of annotation objects.</p>
 </section>
 </section>
 <section id="create-an-annotation">
-<h1>Create an annotation<a class="headerlink" href="#create-an-annotation" title="Permalink to this heading">#</a></h1>
+<h2>Create an annotation<a class="headerlink" href="#create-an-annotation" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span>
 </pre></div>
 </div>
 <p>Create an annotation in an annotation set.</p>
 <section id="id1">
-<h2>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
 </ul>
 </section>
 <section id="request">
-<h2>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an annotation object used to create a new annotation. Read only properties will be ignored.</p>
 </section>
 <section id="id2">
-<h2>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>The annotation object of the newly created annotation.</p>
 </section>
 </section>
 <section id="get-an-annotation">
-<h1>Get an annotation<a class="headerlink" href="#get-an-annotation" title="Permalink to this heading">#</a></h1>
+<h2>Get an annotation<a class="headerlink" href="#get-an-annotation" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Get an annotation by its ID.</p>
 <section id="id3">
-<h2>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>The annotation object of the queried annotation.</p>
 </section>
 </section>
 <section id="update-an-annotation">
-<h1>Update an annotation<a class="headerlink" href="#update-an-annotation" title="Permalink to this heading">#</a></h1>
+<h2>Update an annotation<a class="headerlink" href="#update-an-annotation" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Update an annotation by its ID.</p>
 <section id="id5">
-<h2>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
 </section>
 <section id="id6">
-<h2>Request<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h3>Request<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an annotation object used to update the annotation. Read only properties will be ignored.</p>
 </section>
 <section id="id7">
-<h2>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>The annotation object after the update.</p>
 </section>
 </section>
 <section id="delete-an-annotation">
-<h1>Delete an annotation<a class="headerlink" href="#delete-an-annotation" title="Permalink to this heading">#</a></h1>
+<h2>Delete an annotation<a class="headerlink" href="#delete-an-annotation" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Delete an annotation by its ID.</p>
 <section id="id8">
-<h2>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
 </section>
 <section id="id9">
-<h2>Response<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h3>Response<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>The annotation object of the deleted annotation.</p>
+</section>
 </section>
 </section>
 
@@ -844,7 +835,7 @@ the values of <code class="docutils literal notranslate"><span class="pre">Light
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -852,7 +843,7 @@ the values of <code class="docutils literal notranslate"><span class="pre">Light
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Get the information about a publication</p>
+        <p class="prev-next-title">Publishing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -871,50 +862,49 @@ the values of <code class="docutils literal notranslate"><span class="pre">Light
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Annotation object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-format">General format</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#title-field">Title field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description-field">Description field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-field">Link field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-field">Tag field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-field">Note field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution-field">Attribution field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-field">Date field</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-color-field">Line color field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-object">Annotation object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-format">General format</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#title-field">Title field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-field">Description field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-field">Link field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-field">Tag field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-field">Note field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution-field">Attribution field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-field">Date field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-color-field">Line color field</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotations">Get all annotations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotations">Get all annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation">Get an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation">Get an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
