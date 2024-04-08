@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Database configurations &#8212; My sample book</title>
   
   
   
@@ -173,7 +173,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Heading%201/ex1.html">Markdown HTML</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heading 2</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Database configurations</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="ex3.html">EX3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ex4.html">EX4</a></li>
 </ul>
@@ -365,7 +371,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Database configurations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,7 +380,13 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
 </ul>
 
             </nav>
@@ -393,6 +405,61 @@ document.write(`
 </div>
 <p>Once all the dependencies are installed, make a copy of file <code class="docutils literal notranslate"><span class="pre">.env.example</span></code> and name it as <code class="docutils literal notranslate"><span class="pre">.env</span></code>. Configurations then
 can be set up via environment variables in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<section id="database-configurations">
+<h1>Database configurations<a class="headerlink" href="#database-configurations" title="Permalink to this heading">#</a></h1>
+<p>An empty database should be created in MySQL or MariaDB. Then corresponding database information should be set to the
+configurations in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</section>
+<section id="image-server-configurations">
+<h1>Image server configurations<a class="headerlink" href="#image-server-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW server requires <a class="reference external" href="https://github.com/Systemik-Solutions/iaw-image-server">IAW Image Server</a> to provide IIIF image
+support. Once the IAW Image Server is running, set <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_URL</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to the base URL of the IAW
+Image Server.</p>
+<p>The IAW image server uses API tokens for authentications. Therefore, a user and an API token should be created in the
+IAW Image Server before setting up <code class="docutils literal notranslate"><span class="pre">IMAGE_SERVER_API_TOKEN</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+</section>
+<section id="authentication-configurations">
+<h1>Authentication configurations<a class="headerlink" href="#authentication-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW server uses <a class="reference external" href="https://laravel.com/docs/10.x/sanctum">Laravel Sanctum</a> to provide authentication. The following
+configurations should be set up in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SANCTUM_STATEFUL_DOMAINS</span></code>: The domain of the IAW application. e.g. <code class="docutils literal notranslate"><span class="pre">iaw.example.com</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_DOMAIN</span></code>: The root domain of the IAW application. e.g. <code class="docutils literal notranslate"><span class="pre">.example.com</span></code>.</p></li>
+</ul>
+<blockquote>
+<div><p>[!NOTE]
+The IAW server and application must be configured under the same root domain. For example, the domain name of the
+server is <code class="docutils literal notranslate"><span class="pre">iaw-server.example.com</span></code> and the domain name of the application is <code class="docutils literal notranslate"><span class="pre">iaw-app.example.com</span></code>. However, IAW
+app running in the built-in dev server does not require this as it uses proxy to redirect requests to the server.</p>
+</div></blockquote>
+</section>
+<section id="persistent-identifier-pid-configurations">
+<h1>Persistent Identifier (PID) configurations<a class="headerlink" href="#persistent-identifier-pid-configurations" title="Permalink to this heading">#</a></h1>
+<p>IAW uses <a class="reference external" href="https://w3id.org/">w3id</a> to provide persistent identifiers for images and publications. The following are
+the configurations related to PID:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_ENABLE</span></code>: Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to enable PID support. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_SECURE</span></code>: Whether to use HTTPS for PID. Default is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_IMAGE_BASE</span></code>: The base PID for images. E.g. <code class="docutils literal notranslate"><span class="pre">w3id.org/iaw/images</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PID_PUBLICATION_BASE</span></code>: The base PID for publications. E.g. <code class="docutils literal notranslate"><span class="pre">w3id.org/iaw/publications</span></code>.</p></li>
+</ul>
+</section>
+<section id="generating-the-encryption-key">
+<h1>Generating the encryption key<a class="headerlink" href="#generating-the-encryption-key" title="Permalink to this heading">#</a></h1>
+<p>Laravel requires an encryption key from the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. To generate the key, use the following artisan command and it
+will populate the <code class="docutils literal notranslate"><span class="pre">APP_KEY</span></code> variable in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>key:generate
+</pre></div>
+</div>
+</section>
+<section id="migrating-the-database">
+<h1>Migrating the database<a class="headerlink" href="#migrating-the-database" title="Permalink to this heading">#</a></h1>
+<p>Once the database configurations are configured in the <code class="docutils literal notranslate"><span class="pre">.env</span></code>, the structure and default data should be created in the
+database by running the artisan command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>artisan<span class="w"> </span>migrate<span class="w"> </span>--seed
+</pre></div>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -456,7 +523,13 @@ can be set up via environment variables in the <code class="docutils literal not
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Database configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#image-server-configurations">Image server configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-configurations">Authentication configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persistent-identifier-pid-configurations">Persistent Identifier (PID) configurations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-the-encryption-key">Generating the encryption key</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-the-database">Migrating the database</a></li>
 </ul>
 
   </nav></div>
