@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>User object &#8212; My sample book</title>
+    <title>Get the information about a publication &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/5. Users';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/11. Publishing';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Collection object" href="6.%20Collections.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="4.%20Responses.html" />
+    <link rel="next" title="Share a collection" href="12.%20Sharing.html" />
+    <link rel="prev" title="Annotation object" href="10.%20Annotations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="11.%20Publishing.html">Get the information about a publication</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Get the information about a publication</a></li>
 
 
 <li class="toctree-l1"><a class="reference internal" href="12.%20Sharing.html">Share a collection</a></li>
@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="15.%20Miscellaneous.html">Get all languages</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Create an API token</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">User object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.%20Users.html">User object</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="6.%20Collections.html">Collection object</a></li>
 
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/5. Users.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/11. Publishing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Server API/5. Users.md" target="_blank"
+      <li><a href="../_sources/Server API/11. Publishing.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>User object</h1>
+    <h1>Get the information about a publication</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,9 +420,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-current-authenticated-user">Get the current authenticated user</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get the information about a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 </ul>
@@ -437,26 +447,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="user-object">
-<h1>User object<a class="headerlink" href="#user-object" title="Permalink to this heading">#</a></h1>
-<p>Each user returned from the API is a JSON object with the following properties:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the user.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the user.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: The email of the user.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">email_verified_at</span></code>: The datetime when the email is verified.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: The datetime when the user is created.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: The datetime when the user is updated.</p></li>
-</ul>
-</section>
-<section id="get-the-current-authenticated-user">
-<h1>Get the current authenticated user<a class="headerlink" href="#get-the-current-authenticated-user" title="Permalink to this heading">#</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">auth</span><span class="o">-</span><span class="n">user</span>
+  <section id="get-the-information-about-a-publication">
+<h1>Get the information about a publication<a class="headerlink" href="#get-the-information-about-a-publication" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">info</span>
 </pre></div>
 </div>
+<p>Get the general information about the publication.</p>
+<section id="url-parameters">
+<h2>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
+</ul>
+</section>
 <section id="response">
 <h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
-<p>An object of the current authenticated user.</p>
+<p>An object with the following properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the publication.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set of the publication.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active</span></code>: Whether the publication is active.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: The datetime when the publication is created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: The datetime when the publication is updated.</p></li>
+</ul>
+</section>
+</section>
+<section id="get-the-data-of-a-publication">
+<h1>Get the data of a publication<a class="headerlink" href="#get-the-data-of-a-publication" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Get a published image set data by its publication ID.</p>
+<section id="id1">
+<h2>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>The image set object of the published image set.</p>
+<p>Additionally, the following properties are included in the image set object:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">images</span></code>: An array of <span class="xref myst">image objects</span> which are the images included in the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">annotation_sets</span></code>: An array of <span class="xref myst">annotation set objects</span> which are published annotation sets
+of the image set. Each annotation set object also has the property <code class="docutils literal notranslate"><span class="pre">annotations</span></code> which is an array of
+<span class="xref myst">annotation objects</span> which are the annotations of the annotation set.</p></li>
+</ul>
+</section>
+</section>
+<section id="get-the-iiif-manifest-of-a-publication">
+<h1>Get the IIIF manifest of a publication<a class="headerlink" href="#get-the-iiif-manifest-of-a-publication" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">manifest</span>
+</pre></div>
+</div>
+<p>Get the IIIF manifest of a published image set by its publication ID.</p>
+<section id="id3">
+<h2>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>The IIIF manifest of the published image set.</p>
 </section>
 </section>
 
@@ -491,20 +544,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="4.%20Responses.html"
+       href="10.%20Annotations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Annotation object</p>
       </div>
     </a>
     <a class="right-next"
-       href="6.%20Collections.html"
+       href="12.%20Sharing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Collection object</p>
+        <p class="prev-next-title">Share a collection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -523,9 +576,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User object</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-current-authenticated-user">Get the current authenticated user</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Get the information about a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-data-of-a-publication">Get the data of a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-iiif-manifest-of-a-publication">Get the IIIF manifest of a publication</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 </ul>
