@@ -10,6 +10,7 @@ parts:
   - caption: Server API
     chapters:
       - file: Server API/1. Intro
+      - file: Server API/10. Annotations
       - file: Server API/2. Authentication
       - file: Server API/3. Usages
       - file: Server API/4. Responses
