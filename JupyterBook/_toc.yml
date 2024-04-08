@@ -11,6 +11,11 @@ parts:
     chapters:
       - file: Server API/1. Intro
       - file: Server API/10. Annotations
+      - file: Server API/11. Publishing
+      - file: Server API/12. Sharing
+      - file: Server API/13. Search
+      - file: Server API/14. Response
+      - file: Server API/15. Miscellaneous
       - file: Server API/2. Authentication
       - file: Server API/3. Usages
       - file: Server API/4. Responses
