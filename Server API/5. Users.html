@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>User object &#8212; My sample book</title>
   
   
   
@@ -62,9 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Heading 1/1. System requirements';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Server API/5. Users';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="4.%20Responses.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,9 +177,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Server API</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../Server%20API/2.%20Authentication.html">Create an API token</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Server%20API/5.%20Users.html">User object</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.%20Authentication.html">Create an API token</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">User object</a></li>
 
 </ul>
 
@@ -251,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FHeading 1/1. System requirements.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MufengNiu/MufengNiu.github.io/issues/new?title=Issue%20on%20page%20%2FServer API/5. Users.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Heading 1/1. System requirements.md" target="_blank"
+      <li><a href="../_sources/Server API/5. Users.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>User object</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -374,7 +375,12 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-current-authenticated-user">Get the current authenticated user</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -387,14 +393,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>IAW Server is built with <a class="reference external" href="https://laravel.com/docs/10.x">Laravel 10.x</a>. The following are the system requirements in
-order to run the IAW Server.</p>
+  <section id="user-object">
+<h1>User object<a class="headerlink" href="#user-object" title="Permalink to this heading">#</a></h1>
+<p>Each user returned from the API is a JSON object with the following properties:</p>
 <ul class="simple">
-<li><p>PHP 8.1+</p></li>
-<li><p>MySQL 5.7+ or MariaDB 10.10+</p></li>
-<li><p>Composer 2.2.0+</p></li>
-<li><p>Apache 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: The email of the user.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email_verified_at</span></code>: The datetime when the email is verified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: The datetime when the user is created.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: The datetime when the user is updated.</p></li>
 </ul>
+</section>
+<section id="get-the-current-authenticated-user">
+<h1>Get the current authenticated user<a class="headerlink" href="#get-the-current-authenticated-user" title="Permalink to this heading">#</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">auth</span><span class="o">-</span><span class="n">user</span>
+</pre></div>
+</div>
+<section id="response">
+<h2>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h2>
+<p>An object of the current authenticated user.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -409,7 +429,7 @@ order to run the IAW Server.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./Heading 1"
+            path: "./Server API"
         },
         predefinedOutput: true
     }
@@ -426,6 +446,15 @@ order to run the IAW Server.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="4.%20Responses.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -440,7 +469,12 @@ order to run the IAW Server.</p>
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">User object</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-current-authenticated-user">Get the current authenticated user</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
