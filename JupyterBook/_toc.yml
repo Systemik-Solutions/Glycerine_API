@@ -10,6 +10,6 @@ parts:
   - caption: Server API
     chapters:
       - file: Server API/1. Intro
-      - file: Server API/ex3
-      - file: Server API/ex4
+      - file: Server API/2. Authentication
+      - file: Server API/3. Usages
       - file: Server API/*
