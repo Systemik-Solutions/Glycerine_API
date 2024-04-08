@@ -9,7 +9,7 @@ parts:
       - file: Glycerine Image Annotation Workbench (IAW) Server/*
   - caption: Server API
     chapters:
-      - file: Server API/Installation
+      - file: Server API/1. Intro
       - file: Server API/ex3
       - file: Server API/ex4
       - file: Server API/*
