@@ -1,12 +1,6 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Glycerine Image Annotation Workbench (IAW) Server
-    chapters:
-      - file: Glycerine Image Annotation Workbench (IAW) Server/1. Introduction
-      - file: Glycerine Image Annotation Workbench (IAW) Server/2. System requirements
-      - file: Glycerine Image Annotation Workbench (IAW) Server/3. Installation
-      - file: Glycerine Image Annotation Workbench (IAW) Server/*
   - caption: Server API
     chapters:
       - file: Server API/1. Introduction
