@@ -382,38 +382,42 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-iiif-manifest">Get IIIF manifest</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-collection-manifest">Get Collection manifest</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-iiif-manifest">Get IIIF manifest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-canvas">Get the canvas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-collection">Get the annotation collection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-page">Get the annotation page</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation">Get the annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-page">Get the annotation page</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation">Get the annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -438,6 +442,20 @@ annotation related API.</p>
 <p>The IIIF API from Glycerine Server is a minimal implementation of the Web Annotation Protocol. Some aspects such
 as representation preferences and etag verification are not supported at this stage.</p>
 </div>
+<section id="get-collection-manifest">
+<h2>Get Collection manifest<a class="headerlink" href="#get-collection-manifest" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">iiif</span><span class="o">/</span><span class="n">collection</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Get the IIIF Collection manifest from a collection. Note that this requires the request to be authenticated, which is
+different from the collection publication manifest.</p>
+<section id="url-parameters">
+<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the collection.</p></li>
+</ul>
+</section>
+</section>
 <section id="get-iiif-manifest">
 <h2>Get IIIF manifest<a class="headerlink" href="#get-iiif-manifest" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">iiif</span><span class="o">/</span><span class="n">manifest</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
@@ -446,8 +464,8 @@ as representation preferences and etag verification are not supported at this st
 <p>Get the IIIF manifest from an image set. Note that this requires the request to be authenticated, which is different
 from the image set publication manifest. Also note that the manifest returned from this API doesn’t include the
 annotations.</p>
-<section id="url-parameters">
-<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h3>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image set.</p></li>
 </ul>
@@ -464,27 +482,30 @@ annotations.</p>
 </div>
 <p>Get the IIIF Canvas representation of an image. Not that it includes the annotations from all annotation sets which
 the current authenticated user has access to, including all the published annotation sets.</p>
-<section id="id1">
-<h3>URL parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="id2">
+<h3>URL parameters<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h3>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>The IIIF Canvas representation of the image.</p>
 </section>
 </section>
 <section id="get-the-annotation-collection">
 <h2>Get the annotation collection<a class="headerlink" href="#get-the-annotation-collection" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">iiif</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">collection</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /iiif/annotation-collection/{id}[?pageby=canvas]
 </pre></div>
 </div>
 <p>Get the IIIF Annotation Collection representation of an annotation set which serves as a container for the annotations.
 For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#container-retrieval">Web Annotation Protocol</a> specification.</p>
-<section id="id3">
-<h3>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>By default, all annotations from the annotation set will be under a single annotation page, which can improve the
+loading performance. If the <code class="docutils literal notranslate"><span class="pre">pageby</span></code> query parameter is set to <code class="docutils literal notranslate"><span class="pre">canvas</span></code>, the annotations will be grouped into pages by
+each canvas.</p>
+<section id="id4">
+<h3>URL parameters<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
 </ul>
@@ -492,16 +513,18 @@ For more details about the request and response, please refer to the
 </section>
 <section id="get-the-annotation-page">
 <h2>Get the annotation page<a class="headerlink" href="#get-the-annotation-page" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">iiif</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">collection</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="n">page</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">iiif</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">collection</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="n">page</span><span class="o">/</span><span class="p">{</span><span class="n">image_id</span><span class="o">|</span><span class="nb">all</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Get the IIIF Annotation Page representation of an annotation set. Note that annotation collection from Glycerine
-Server always contains a single page. For more details about the request and response, please refer to the
-<a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#annotation-pages">Web Annotation Protocol</a> specification.</p>
-<section id="id4">
-<h3>URL parameters<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>Get the IIIF Annotation Page representation of an annotation set. For more details about the request and response,
+please refer to the <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#annotation-pages">Web Annotation Protocol</a>
+specification.</p>
+<section id="id5">
+<h3>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_id</span></code>: The ID of the image to get the annotations for. If it is set to <code class="docutils literal notranslate"><span class="pre">all</span></code>, all annotations in the
+annotation set will be returned.</p></li>
 </ul>
 </section>
 </section>
@@ -512,8 +535,8 @@ Server always contains a single page. For more details about the request and res
 </div>
 <p>Get the IIIF Annotation representation of an annotation. For more details about the request and response, please refer
 to the <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#annotation-retrieval">Web Annotation Protocol</a> specification.</p>
-<section id="id5">
-<h3>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h3>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
@@ -526,8 +549,8 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </div>
 <p>Create an annotation in an annotation set. For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#create-a-new-annotation">Web Annotation Protocol</a> specification.</p>
-<section id="id6">
-<h3>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h3>URL parameters<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
 </ul>
@@ -540,8 +563,8 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </div>
 <p>Update an annotation. For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#update-an-existing-annotation">Web Annotation Protocol</a> specification.</p>
-<section id="id7">
-<h3>URL parameters<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<section id="id8">
+<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
@@ -554,8 +577,8 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </div>
 <p>Delete an annotation. For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#delete-an-existing-annotation">Web Annotation Protocol</a> specification.</p>
-<section id="id8">
-<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<section id="id9">
+<h3>URL parameters<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
@@ -617,38 +640,42 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-iiif-manifest">Get IIIF manifest</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-collection-manifest">Get Collection manifest</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-iiif-manifest">Get IIIF manifest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-canvas">Get the canvas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-collection">Get the annotation collection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-page">Get the annotation page</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation">Get the annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation-page">Get the annotation page</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-annotation">Get the annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
 </ul>
 </li>
 </ul>
