@@ -9,6 +9,18 @@ annotation related API.
 The IIIF API from Glycerine Server is a minimal implementation of the Web Annotation Protocol. Some aspects such
 as representation preferences and etag verification are not supported at this stage.
 ```
+## Get Collection manifest
+
+```
+GET /iiif/collection/{id}
+```
+
+Get the IIIF Collection manifest from a collection. Note that this requires the request to be authenticated, which is
+different from the collection publication manifest.
+
+### URL parameters
+
+- `id`: The ID of the collection.
 
 ## Get IIIF manifest
 
@@ -48,12 +60,16 @@ The IIIF Canvas representation of the image.
 ## Get the annotation collection
 
 ```
-GET /iiif/annotation-collection/{id}
+GET /iiif/annotation-collection/{id}[?pageby=canvas]
 ```
 
 Get the IIIF Annotation Collection representation of an annotation set which serves as a container for the annotations.
 For more details about the request and response, please refer to the 
 [Web Annotation Protocol](https://www.w3.org/TR/annotation-protocol/#container-retrieval) specification.
+
+By default, all annotations from the annotation set will be under a single annotation page, which can improve the
+loading performance. If the `pageby` query parameter is set to `canvas`, the annotations will be grouped into pages by
+each canvas.
 
 ### URL parameters
 
@@ -62,16 +78,18 @@ For more details about the request and response, please refer to the
 ## Get the annotation page
 
 ```
-GET /iiif/annotation-collection/{id}/page
+GET /iiif/annotation-collection/{id}/page/{image_id|all}
 ```
 
-Get the IIIF Annotation Page representation of an annotation set. Note that annotation collection from Glycerine
-Server always contains a single page. For more details about the request and response, please refer to the
-[Web Annotation Protocol](https://www.w3.org/TR/annotation-protocol/#annotation-pages) specification.
+Get the IIIF Annotation Page representation of an annotation set. For more details about the request and response,
+please refer to the [Web Annotation Protocol](https://www.w3.org/TR/annotation-protocol/#annotation-pages) 
+specification.
 
 ### URL parameters
 
 - `id`: The ID of the annotation set.
+- `image_id`: The ID of the image to get the annotations for. If it is set to `all`, all annotations in the
+  annotation set will be returned.
 
 ## Get the annotation
 
