@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: Glycerine API Documentation
+author: Systemik Solutions
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -17,9 +17,9 @@ latex:
 
 # Information about where the book exists on the web
 repository:
-   url: https://github.com/MufengNiu/MufengNiu.github.io
-   branch: master
-   path_to_book: path_in_repo
+   url: https://github.com/Systemik-Solutions/Glycerine_API
+   branch: main
+   path_to_book: JupyterBook
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
