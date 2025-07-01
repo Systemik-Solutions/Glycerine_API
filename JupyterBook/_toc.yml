@@ -3,20 +3,18 @@ root: intro
 parts:
   - caption: 1. Server API
     chapters:
-      - file: 1. Server API/1. Introduction
-      - file: 1. Server API/2. Authentication
-      - file: 1. Server API/3. Usages
-      - file: 1. Server API/4. Responses
-      - file: 1. Server API/5. Users
-      - file: 1. Server API/6. Collections
-      - file: 1. Server API/7. Image Sets
-      - file: 1. Server API/8. Images
-      - file: 1. Server API/9. Annotation Sets
-      - file: 1. Server API/9a. Annotations
-      - file: 1. Server API/9b. Publishing
-      - file: 1. Server API/9c. Sharing
-      - file: 1. Server API/9d. Search
-      - file: 1. Server API/9f. Miscellaneous
+      - file: 1. Server API/1. Getting Started
+      - file: 1. Server API/2. Users
+      - file: 1. Server API/3. Collections
+      - file: 1. Server API/4. Image Sets
+      - file: 1. Server API/5. Images
+      - file: 1. Server API/6. Annotation Sets
+      - file: 1. Server API/7. Image Annotation Sets
+      - file: 1. Server API/8. Annotations
+      - file: 1. Server API/9. Publications
+      - file: 1. Server API/9a. Collaboration
+      - file: 1. Server API/9b. Search
+      - file: 1. Server API/9c. Miscellaneous
       - file: 1. Server API/*
   - caption: 2. IIIF API
     chapters:
