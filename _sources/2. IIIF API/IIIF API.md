@@ -78,17 +78,18 @@ each canvas.
 ## Get the annotation page
 
 ```
-GET /iiif/annotation-collection/{id}/page/{image_id|all}
+GET /iiif/annotation-collection/{id}/page/{target}
 ```
 
-Get the IIIF Annotation Page representation of an annotation set. For more details about the request and response,
+Get an IIIF Annotation Page representation from an annotation set. For more details about the request and response,
 please refer to the [Web Annotation Protocol](https://www.w3.org/TR/annotation-protocol/#annotation-pages) 
 specification.
 
 ### URL parameters
 
 - `id`: The ID of the annotation set.
-- `image_id`: The ID of the image to get the annotations for. If it is set to `all`, all annotations in the
+- `target`: The annotation target which can be an ID of the image if the annotations are targeting to images from 
+  Glycerine Server, or the MD5 hash of the annotation target URI. Or if it is set to `all`, all annotations in the
   annotation set will be returned.
 
 ## Get the annotation
