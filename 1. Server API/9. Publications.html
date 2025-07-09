@@ -418,8 +418,13 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-set-publications">Annotation Set Publications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Get the data of a publication</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">URL parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Response</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">URL parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -437,6 +442,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="publications">
 <h1>Publications<a class="headerlink" href="#publications" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The endpoints documented in this page don’t need authentication as they are published data.</p>
+</div>
 <section id="collection-publications">
 <h2>Collection Publications<a class="headerlink" href="#collection-publications" title="Permalink to this heading">#</a></h2>
 <section id="get-the-information-about-a-publication">
@@ -570,13 +579,30 @@ of the image set. Each annotation set object also has the property <code class="
 <section id="annotation-set-publications">
 <h2>Annotation Set Publications<a class="headerlink" href="#annotation-set-publications" title="Permalink to this heading">#</a></h2>
 <section id="id14">
-<h3>Get the IIIF manifest of a publication<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<h3>Get the data of a publication<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span><span class="o">/</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Get a published annotation set data by its publication ID.</p>
+<section id="id15">
+<h4>URL parameters<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h4>Response<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h4>
+<p>The annotation set object containing all annotation objects from the annotation set.</p>
+</section>
+</section>
+<section id="id17">
+<h3>Get the IIIF manifest of a publication<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">publications</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">publication_id</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Get the IIIF manifest of a published annotation set by its publication ID.</p>
-<section id="id15">
-<h4>URL parameters<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h4>
+<section id="id18">
+<h4>URL parameters<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">publication_id</span></code>: The ID of the publication.</p></li>
 </ul>
@@ -685,8 +711,13 @@ of the image set. Each annotation set object also has the property <code class="
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-set-publications">Annotation Set Publications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Get the data of a publication</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">URL parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Response</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Get the IIIF manifest of a publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">URL parameters</a></li>
 </ul>
 </li>
 </ul>
