@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Images &#8212; Glycerine API Documentation</title>
+    <title>Annotation Fields &#8212; Glycerine API Documentation</title>
   
   
   
@@ -62,9 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '1. Server API/8. Images';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '1. Server API/9d. Annotation Fields';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IIIF API" href="../2.%20IIIF%20API/IIIF%20API.html" />
+    <link rel="prev" title="Miscellaneous" href="9c.%20Miscellaneous.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Server API</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1.%20Getting%20Started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2.%20Users.html">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3.%20Collections.html">Collections</a></li>
@@ -181,7 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="9b.%20Search.html">Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="9c.%20Annotation%20Types.html">Annotation Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="9c.%20Miscellaneous.html">Miscellaneous</a></li>
-<li class="toctree-l1"><a class="reference internal" href="9d.%20Annotation%20Fields.html">Annotation Fields</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Annotation Fields</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. IIIF API</span></p>
 <ul class="nav bd-sidenav">
@@ -257,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Systemik-Solutions/Glycerine_API/issues/new?title=Issue%20on%20page%20%2F1. Server API/8. Images.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Systemik-Solutions/Glycerine_API/issues/new?title=Issue%20on%20page%20%2F1. Server API/9d. Annotation Fields.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/1. Server API/8. Images.md" target="_blank"
+      <li><a href="../_sources/1. Server API/9d. Annotation Fields.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>8. Images</h1>
+    <h1>Annotation Fields</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -381,41 +383,34 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-object">Image object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-field-object">Annotation field object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotation-fields">Get all annotation fields</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation-field">Create an annotation field</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation-field">Get an annotation field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation-field">Update an annotation field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation-field">Delete an annotation field</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-field-types">Get all field types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
 </ul>
 </li>
 </ul>
@@ -429,157 +424,133 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="images">
-<h1>8. Images<a class="headerlink" href="#images" title="Permalink to this heading">#</a></h1>
-<section id="image-object">
-<h2>Image object<a class="headerlink" href="#image-object" title="Permalink to this heading">#</a></h2>
-<p>Each image returned from the API is a JSON object with the following properties:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="annotation-fields">
+<h1>Annotation Fields<a class="headerlink" href="#annotation-fields" title="Permalink to this heading">#</a></h1>
+<p>Annotation fields are part of the annotation template system which defines the data fields that can be used in an
+annotation type.</p>
+<section id="annotation-field-object">
+<h2>Annotation field object<a class="headerlink" href="#annotation-field-object" title="Permalink to this heading">#</a></h2>
+<p>An annotation field object has the following properties:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: The description of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">uri</span></code>: (read only) The URI of the image. If the image is hosted internally be the IAW Image Server, the URI is under
-a custom scheme <code class="docutils literal notranslate"><span class="pre">image-server://</span></code>. Otherwise, the URI is the base URL of the  IIIF image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: The type of the image. It will always be <code class="docutils literal notranslate"><span class="pre">iiif</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: The source of the image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: (read only) The ID of the image set which the image belongs to. It could be <code class="docutils literal notranslate"><span class="pre">null</span></code> if the image is not
-in any image set.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">iiif_url</span></code>: (read only) The base URL of the IIIF image.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: (read only) The datetime when the image is created.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: (read only) The datetime when the image is updated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the annotation field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the annotation field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: The description of the annotation field.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_name</span></code>: The type of the annotation field. The supported types are: <code class="docutils literal notranslate"><span class="pre">text</span></code>, <code class="docutils literal notranslate"><span class="pre">long_text</span></code>, <code class="docutils literal notranslate"><span class="pre">link</span></code>, <code class="docutils literal notranslate"><span class="pre">choice</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extended_data</span></code>: Additional data of the annotation field which can have the following properties:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">valueRequired</span></code>: (boolean) Whether the field is required to have a value when used in an annotation. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multipleValues</span></code>: (boolean) Whether the field can have multiple values when used in an annotation. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">allowHtml</span></code>: (boolean) Whether the field allows HTML content when used in an annotation. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>. Only
+applies to <code class="docutils literal notranslate"><span class="pre">long_text</span></code> field types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">valuePattern</span></code>: (string) Pipe (<code class="docutils literal notranslate"><span class="pre">|</span></code>) separated string which defines the allowed values for <code class="docutils literal notranslate"><span class="pre">choice</span></code> field types. For example,
+<code class="docutils literal notranslate"><span class="pre">Option</span> <span class="pre">1|Option</span> <span class="pre">2|Option</span> <span class="pre">3</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hideLabel</span></code>: (boolean) Whether to hide the field label when displaying the annotation. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hidden</span></code>: (boolean) Whether to completely hide the field when displaying the annotation. Default is <code class="docutils literal notranslate"><span class="pre">false</span></code>. This is useful
+for fields specified in the title mask of an annotation type.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">owner_id</span></code>: (read only) The ID of the user who owns the annotation field. System fields have <code class="docutils literal notranslate"><span class="pre">null</span></code> owner ID.</p></li>
 </ul>
 </section>
-<section id="get-all-images">
-<h2>Get all images<a class="headerlink" href="#get-all-images" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">images</span>
+<section id="get-all-annotation-fields">
+<h2>Get all annotation fields<a class="headerlink" href="#get-all-annotation-fields" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">fields</span>
 </pre></div>
 </div>
-<p>Get all images in an image set.</p>
-<section id="url-parameters">
-<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
-</ul>
-</section>
+<p>Get all annotation fields which contain both system and user defined annotation fields.</p>
 <section id="response">
 <h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
-<p>An array of image objects.</p>
+<p>An array of annotation field objects.</p>
 </section>
 </section>
-<section id="create-from-a-local-image">
-<h2>Create from a local image<a class="headerlink" href="#create-from-a-local-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">local</span>
+<section id="create-an-annotation-field">
+<h2>Create an annotation field<a class="headerlink" href="#create-an-annotation-field" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">fields</span>
 </pre></div>
 </div>
-<p>Create an image from a local image file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div>
+<p>Create a new annotation field.</p>
 <section id="request">
 <h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h3>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the image file, set the content of the image file encoded in base64 to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image
-object.</p>
+<p>The request body should be an annotation field object used to create a new annotation field. Read only properties will be ignored.</p>
 </section>
 <section id="id1">
 <h3>Response<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>The image object of the newly created image.</p>
+<p>The annotation field object of the newly created annotation field.</p>
 </section>
 </section>
-<section id="create-from-a-remote-image">
-<h2>Create from a remote image<a class="headerlink" href="#create-from-a-remote-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">remote</span>
+<section id="get-an-annotation-field">
+<h2>Get an annotation field<a class="headerlink" href="#get-an-annotation-field" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">fields</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Create an image from a remote image file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div>
+<p>Get an annotation field by its ID.</p>
+<section id="url-parameters">
+<h3>URL parameters<a class="headerlink" href="#url-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation field.</p></li>
+</ul>
+</section>
 <section id="id2">
-<h3>Request<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the image file, set the URL of the remote image file to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
-</section>
-<section id="id3">
-<h3>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p>The image object of the newly created image.</p>
+<h3>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>The annotation field object of the queried annotation field.</p>
 </section>
 </section>
-<section id="create-from-an-external-iiif-image">
-<h2>Create from an external IIIF image<a class="headerlink" href="#create-from-an-external-iiif-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">iiif</span>
+<section id="update-an-annotation-field">
+<h2>Update an annotation field<a class="headerlink" href="#update-an-annotation-field" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">fields</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Create an image from an external IIIF image.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This API only creates an isolated image. To add the image to an image set, use the <span class="xref myst">image set API</span>.</p>
-</div>
+<p>Update an annotation field by its ID.</p>
+<section id="id3">
+<h3>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation field.</p></li>
+</ul>
+</section>
 <section id="id4">
 <h3>Request<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<p>The request body should be an image object used to create a new image. Read only properties will be ignored.</p>
-<p>To specify the IIIF image, set the base URL of the IIIF image to the <code class="docutils literal notranslate"><span class="pre">file</span></code> property of the image object.</p>
+<p>The request body should be an annotation field object used to update the annotation field. Read only properties will be ignored.</p>
 </section>
 <section id="id5">
 <h3>Response<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
-<p>The image object of the newly created image.</p>
+<p>The annotation field object of the updated annotation field.</p>
 </section>
 </section>
-<section id="get-an-image">
-<h2>Get an image<a class="headerlink" href="#get-an-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+<section id="delete-an-annotation-field">
+<h2>Delete an annotation field<a class="headerlink" href="#delete-an-annotation-field" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">fields</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Get an image by its ID.</p>
+<p>Delete an annotation field by its ID.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Deleting an annotation field will also delete the field data in all annotations using this field. This action is irreversible.</p>
+</div>
 <section id="id6">
 <h3>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation field.</p></li>
 </ul>
 </section>
 <section id="id7">
 <h3>Response<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
-<p>The image object of the queried image.</p>
+<p>The deleted annotation field object.</p>
 </section>
 </section>
-<section id="update-an-image">
-<h2>Update an image<a class="headerlink" href="#update-an-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PUT</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
+<section id="get-all-field-types">
+<h2>Get all field types<a class="headerlink" href="#get-all-field-types" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">template</span><span class="o">/</span><span class="n">field</span><span class="o">-</span><span class="n">types</span>
 </pre></div>
 </div>
-<p>Update an image by its ID.</p>
+<p>Get all supported annotation field types.</p>
 <section id="id8">
-<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<h3>Response<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>An array of supported annotation field types. Each type has the following properties:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The machine name of the field type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: The description of the field type.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label</span></code>: The human-readable label of the field type.</p></li>
 </ul>
-</section>
-<section id="id9">
-<h3>Request<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
-<p>The request body should be an image object used to update the image. Read only properties will be ignored.</p>
-</section>
-<section id="id10">
-<h3>Response<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
-<p>The image object after the update.</p>
-</section>
-</section>
-<section id="delete-an-image">
-<h2>Delete an image<a class="headerlink" href="#delete-an-image" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELETE</span> <span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span>
-</pre></div>
-</div>
-<p>Delete an image by its ID.</p>
-<section id="id11">
-<h3>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image.</p></li>
-</ul>
-</section>
-<section id="id12">
-<h3>Response<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
-<p>The image object of the deleted image.</p>
 </section>
 </section>
 </section>
@@ -614,6 +585,24 @@ object.</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="9c.%20Miscellaneous.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Miscellaneous</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../2.%20IIIF%20API/IIIF%20API.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">IIIF API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -629,41 +618,34 @@ object.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-object">Image object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-images">Get all images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-field-object">Annotation field object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-annotation-fields">Get all annotation fields</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-local-image">Create from a local image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation-field">Create an annotation field</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-a-remote-image">Create from a remote image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-annotation-field">Get an annotation field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-parameters">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-from-an-external-iiif-image">Create from an external IIIF image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation-field">Update an annotation field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Request</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image">Get an image</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation-field">Delete an annotation field</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Response</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image">Update an image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image">Delete an image</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-all-field-types">Get all field types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
 </ul>
 </li>
 </ul>
