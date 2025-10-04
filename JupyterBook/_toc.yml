@@ -15,8 +15,8 @@ parts:
       - file: 1. Server API/9a. Collaboration
       - file: 1. Server API/9b. Search
       - file: 1. Server API/9c. Annotation Types
-      - file: 1. Server API/9c. Miscellaneous
       - file: 1. Server API/9d. Annotation Fields
+      - file: 1. Server API/9e. Miscellaneous
       - file: 1. Server API/*
   - caption: 2. IIIF API
     chapters:
