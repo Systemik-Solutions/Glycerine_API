@@ -410,6 +410,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-an-annotation-set">Clone an annotation set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-ownership-of-an-annotation-set">Transfer ownership of an annotation set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Response</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -541,6 +553,56 @@ published. If it is set to <code class="docutils literal notranslate"><span clas
 <p>The annotation set object of the deleted annotation set.</p>
 </section>
 </section>
+<section id="clone-an-annotation-set">
+<h2>Clone an annotation set<a class="headerlink" href="#clone-an-annotation-set" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="n">clone</span>
+</pre></div>
+</div>
+<p>Clone an annotation set by its ID.</p>
+<section id="id11">
+<h3>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Request<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<p>The request body should be an object with the following properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: The name of the cloned annotation set.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Response<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
+<p>The annotation set object of the cloned annotation set.</p>
+</section>
+</section>
+<section id="transfer-ownership-of-an-annotation-set">
+<h2>Transfer ownership of an annotation set<a class="headerlink" href="#transfer-ownership-of-an-annotation-set" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">image_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="n">transfer</span>
+</pre></div>
+</div>
+<p>Transfer ownership of an annotation set by its ID.</p>
+<section id="id14">
+<h3>URL parameters<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image_set_id</span></code>: The ID of the image set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Request<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
+<p>The request body should be an object with the following properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">new_owner_email</span></code>: The user email of the new owner.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Response<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<p>The annotation set object after the ownership transfer.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -631,6 +693,18 @@ published. If it is set to <code class="docutils literal notranslate"><span clas
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation-set-from-an-image-set">Delete an annotation set from an image set</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-an-annotation-set">Clone an annotation set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-ownership-of-an-annotation-set">Transfer ownership of an annotation set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Response</a></li>
 </ul>
 </li>
 </ul>
