@@ -1,6 +1,7 @@
 name: Build and Deploy Jupyter Book
 
 on:
+  workflow_dispatch:
   push:
     paths:
     - 'Markdowns/**.md'
