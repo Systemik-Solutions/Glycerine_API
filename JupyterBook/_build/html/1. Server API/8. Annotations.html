@@ -417,6 +417,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reorder-annotations">Reorder annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Response</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -436,6 +442,7 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: (read only) The ID of the annotation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_type_id</span></code>: The ID of the type of the annotation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: (read only) The annotation type (template) object that this annotation is based on. Embeds the same fields the type object returns from <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/annotation-template/types/{id}</span></code> — at minimum <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, and <code class="docutils literal notranslate"><span class="pre">extended_data</span></code>. Maps to <code class="docutils literal notranslate"><span class="pre">annotation_type_id</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set which the annotation belongs to.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">image_id</span></code>: The ID of the image which the annotation belongs to. Only applies to annoations from image annotation sets.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: the Web Annotation target. See <a class="reference internal" href="#annotation-target"><span class="std std-ref">Annotation target</span></a> for details.</p></li>
@@ -443,6 +450,7 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">line_weight</span></code>: The outline color shade of the annotation. The value should be one of the values of <code class="docutils literal notranslate"><span class="pre">light</span></code>, <code class="docutils literal notranslate"><span class="pre">medium</span></code>, and <code class="docutils literal notranslate"><span class="pre">dark</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">fields</span></code>: the field data of the annotation. See <a class="reference internal" href="#annotation-fields"><span class="std std-ref">Annotation fields</span></a> for details.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tags</span></code>: list of tags applied to the annotation. See <a class="reference internal" href="#annotation-tags"><span class="std std-ref">Annotation Tags</span></a> for details.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weight</span></code>: (read only) The integer used to order the annotation within its annotation set. A <code class="docutils literal notranslate"><span class="pre">null</span></code> value indicates the annotation has not been explicitly ordered. See <span class="xref myst">Reorder annotations</span> for how this value is set.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code>: (read only) The datetime when the annotation is created.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">updated_at</span></code>: (read only) The datetime when the annotation is updated.</p></li>
 </ul>
@@ -747,6 +755,37 @@ information of the term. For example:</p></li>
 <p>The annotation object of the deleted annotation.</p>
 </section>
 </section>
+<section id="reorder-annotations">
+<span id="id14"></span><h2>Reorder annotations<a class="headerlink" href="#reorder-annotations" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">annotation</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="p">{</span><span class="n">annotation_set_id</span><span class="p">}</span><span class="o">/</span><span class="n">annotations</span><span class="o">/</span><span class="n">reorder</span>
+</pre></div>
+</div>
+<p>Set the display order of annotations within an annotation set. The endpoint accepts an ordered array of annotation IDs and assigns each listed annotation a <code class="docutils literal notranslate"><span class="pre">weight</span></code> equal to its position in the array (starting from <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+<p>The list may be partial. Listed annotations receive the new <code class="docutils literal notranslate"><span class="pre">weight</span></code> values, while annotations not included in the request keep their existing <code class="docutils literal notranslate"><span class="pre">weight</span></code> (which may be <code class="docutils literal notranslate"><span class="pre">null</span></code> if they have never been ordered). Annotations with an explicit <code class="docutils literal notranslate"><span class="pre">weight</span></code> are returned before those without; ties and unordered annotations are sorted by their <code class="docutils literal notranslate"><span class="pre">id</span></code> in ascending order.</p>
+<section id="id15">
+<h3>URL parameters<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">annotation_set_id</span></code>: The ID of the annotation set.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Request<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h3>
+<p>The request body should be a JSON object with the following property:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">annotation_ids</span></code>: (required) An ordered array of annotation IDs. All IDs must belong to the target annotation set. Duplicate IDs are not allowed. An empty array is accepted and is treated as a no-op.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;annotation_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id17">
+<h3>Response<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h3>
+<p>An array of annotation objects of the annotation set in the resulting display order, including the updated <code class="docutils literal notranslate"><span class="pre">weight</span></code> values.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -844,6 +883,12 @@ information of the term. For example:</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reorder-annotations">Reorder annotations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Response</a></li>
 </ul>
 </li>
 </ul>
