@@ -384,7 +384,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-within-a-collection">Search within a collection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#without-pagination">Without pagination</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#with-pagination">With pagination</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-errors">Validation errors</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-image-sets-across-collections">Search image sets across collections</a></li>
@@ -430,6 +435,10 @@ concatenate them with a comma or use the array notation. For example, to specify
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Used for searching entities by ID. Multiple values are supported.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">full_text</span></code>: Used for full text search.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">tag_label</span></code>: Used for searching entities by tag label. Multiple values are supported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code>: (optional) The page number to return. Must be an integer greater than or equal to <code class="docutils literal notranslate"><span class="pre">1</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>
+when pagination is enabled.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">per_page</span></code>: (optional) The number of results per page. Must be an integer between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">20</span></code>
+when pagination is enabled.</p></li>
 </ul>
 <p>The following table lists the supported query parameters for each type.</p>
 <table class="table">
@@ -470,7 +479,52 @@ concatenate them with a comma or use the array notation. For example, to specify
 </table>
 <section id="response">
 <h3>Response<a class="headerlink" href="#response" title="Permalink to this heading">#</a></h3>
-<p>The response will be an array of entities from the search results, or an empty array if no entities are found.</p>
+<p>The response format depends on whether <code class="docutils literal notranslate"><span class="pre">page</span></code> or <code class="docutils literal notranslate"><span class="pre">per_page</span></code> is present in the request.</p>
+<section id="without-pagination">
+<h4>Without pagination<a class="headerlink" href="#without-pagination" title="Permalink to this heading">#</a></h4>
+<p>When neither <code class="docutils literal notranslate"><span class="pre">page</span></code> nor <code class="docutils literal notranslate"><span class="pre">per_page</span></code> is provided, the response remains an array of all matching entities, or an empty
+array if no entities are found.</p>
+</section>
+<section id="with-pagination">
+<h4>With pagination<a class="headerlink" href="#with-pagination" title="Permalink to this heading">#</a></h4>
+<p>Providing either <code class="docutils literal notranslate"><span class="pre">page</span></code> or <code class="docutils literal notranslate"><span class="pre">per_page</span></code> enables pagination for all supported search types: <code class="docutils literal notranslate"><span class="pre">annotation</span></code>, <code class="docutils literal notranslate"><span class="pre">image</span></code>,
+<code class="docutils literal notranslate"><span class="pre">image_set</span></code>, <code class="docutils literal notranslate"><span class="pre">annotation_set</span></code>, and <code class="docutils literal notranslate"><span class="pre">tag</span></code>. These parameters can be combined with the search filters supported by each
+type in the table above. Results are ordered by ascending entity ID.</p>
+<p>For example, to return the second page with 10 images per page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /collections/{collection_id}/search?type=image&amp;per_page=10&amp;page=2
+</pre></div>
+</div>
+<p>Providing only <code class="docutils literal notranslate"><span class="pre">page=2</span></code> returns the second page with the default 20 results per page. Providing only <code class="docutils literal notranslate"><span class="pre">per_page=10</span></code>
+returns the first page with 10 results per page.</p>
+<p>The response is a paginated result object, using the same format as <a class="reference internal" href="4.%20Image%20Sets.html#search-image-sets"><span class="std std-ref">Search image sets by name</span></a>,
+with the following properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: An array of matching entities on the current page. Each entity retains the same fields as in the
+unpaginated response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_page</span></code>: The current page number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">per_page</span></code>: The number of results per page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total</span></code>: The total number of matching entities across all pages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_page</span></code>: The last page number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span></code>: The position of the first result on the current page, or <code class="docutils literal notranslate"><span class="pre">null</span></code> if the page is empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: The position of the last result on the current page, or <code class="docutils literal notranslate"><span class="pre">null</span></code> if the page is empty.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">last_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">prev_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">next_page_url</span></code>: The URLs of the corresponding pages.
+<code class="docutils literal notranslate"><span class="pre">prev_page_url</span></code> and <code class="docutils literal notranslate"><span class="pre">next_page_url</span></code> are <code class="docutils literal notranslate"><span class="pre">null</span></code> when there is no such page. Pagination URLs retain the search query
+parameters, including the search type and filters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">links</span></code>: An array of pagination links, each with <code class="docutils literal notranslate"><span class="pre">url</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">active</span></code> properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code>: The base URL of the endpoint.</p></li>
+</ul>
+<p>If no entities match, or the requested page is beyond the last page, <code class="docutils literal notranslate"><span class="pre">data</span></code> is an empty array. The <code class="docutils literal notranslate"><span class="pre">total</span></code> still
+reflects the total number of matches. For <code class="docutils literal notranslate"><span class="pre">tag</span></code> searches, tags are deduplicated by <code class="docutils literal notranslate"><span class="pre">term_id</span></code> before pagination and
+counting. The matching tag with the lowest ID represents each term; tags with a null <code class="docutils literal notranslate"><span class="pre">term_id</span></code> are excluded.</p>
+</section>
+</section>
+<section id="validation-errors">
+<h3>Validation errors<a class="headerlink" href="#validation-errors" title="Permalink to this heading">#</a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">page</span></code> or <code class="docutils literal notranslate"><span class="pre">per_page</span></code> is supplied with an empty or invalid value, the API returns HTTP <code class="docutils literal notranslate"><span class="pre">422</span></code> with validation errors.
+For example, <code class="docutils literal notranslate"><span class="pre">page=0</span></code>, <code class="docutils literal notranslate"><span class="pre">page=1.5</span></code>, <code class="docutils literal notranslate"><span class="pre">per_page=101</span></code>, and <code class="docutils literal notranslate"><span class="pre">per_page=</span></code> are invalid. Omit both pagination parameters to keep
+the unpaginated response; passing empty values does not disable pagination.</p>
+<p>Existing search errors, such as a missing or unsupported <code class="docutils literal notranslate"><span class="pre">type</span></code>, continue to return HTTP <code class="docutils literal notranslate"><span class="pre">400</span></code> when the pagination
+parameters are valid or absent.</p>
 </section>
 </section>
 <section id="search-image-sets-across-collections">
@@ -544,7 +598,12 @@ concatenate them with a comma or use the array notation. For example, to specify
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-within-a-collection">Search within a collection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#without-pagination">Without pagination</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#with-pagination">With pagination</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-errors">Validation errors</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-image-sets-across-collections">Search image sets across collections</a></li>
