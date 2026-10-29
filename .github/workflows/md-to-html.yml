@@ -11,7 +11,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Python 3.8 is available for Ubuntu 24.04, but not Ubuntu 26.04.
+    # Pin the OS so ubuntu-latest migrations do not break this legacy build.
+    runs-on: ubuntu-24.04
     
     steps:
     - name: Checkout repository
