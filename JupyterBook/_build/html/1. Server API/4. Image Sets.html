@@ -389,32 +389,37 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-image-sets-by-name">Search image sets by name</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-parameters">Query parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-image-set">Create an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image-set">Get an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image-set">Update an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image-set">Delete an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-iiif-manifest">Import IIIF manifest</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Response</a></li>
 </ul>
 </li>
 </ul>
@@ -494,14 +499,56 @@ permission names which the current user has on the image set. The permission nam
 <p>An array of image set objects.</p>
 </section>
 </section>
+<section id="search-image-sets-by-name">
+<span id="search-image-sets"></span><h2>Search image sets by name<a class="headerlink" href="#search-image-sets-by-name" title="Permalink to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span><span class="o">/</span><span class="n">search</span>
+</pre></div>
+</div>
+<p>Search image sets by name across all collections the current user can access, i.e. the collections owned by the
+user and the collections shared with the user. The name is matched case-insensitively against any part of the image
+set name. Results are ordered by name and paginated.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /image-sets/search?name=motor&amp;per_page=10&amp;page=2
+</pre></div>
+</div>
+<section id="query-parameters">
+<h3>Query parameters<a class="headerlink" href="#query-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: (required) The text to search for in image set names. Maximum 255 characters. Wildcard characters such as
+<code class="docutils literal notranslate"><span class="pre">%</span></code> and <code class="docutils literal notranslate"><span class="pre">_</span></code> are matched literally.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">per_page</span></code>: (optional) The number of results per page, between 1 and 100. Defaults to <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">page</span></code>: (optional) The page number to return. Defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Response<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>A paginated result object with the following properties:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: An array of image set objects on the current page. The <code class="docutils literal notranslate"><span class="pre">collection</span></code> property of each image set object only
+contains the <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">owner_id</span></code> of the collection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_page</span></code>: The current page number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">per_page</span></code>: The number of results per page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total</span></code>: The total number of matched image sets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_page</span></code>: The last page number.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span></code>: The position of the first result on the current page, or <code class="docutils literal notranslate"><span class="pre">null</span></code> if there are no results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: The position of the last result on the current page, or <code class="docutils literal notranslate"><span class="pre">null</span></code> if there are no results.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">last_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">prev_page_url</span></code>, <code class="docutils literal notranslate"><span class="pre">next_page_url</span></code>: The URLs of the corresponding pages.
+<code class="docutils literal notranslate"><span class="pre">prev_page_url</span></code> and <code class="docutils literal notranslate"><span class="pre">next_page_url</span></code> are <code class="docutils literal notranslate"><span class="pre">null</span></code> when there is no such page.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">links</span></code>: An array of pagination links, each with <code class="docutils literal notranslate"><span class="pre">url</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code> and <code class="docutils literal notranslate"><span class="pre">active</span></code> properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">path</span></code>: The base URL of the endpoint.</p></li>
+</ul>
+<p>If no image sets are matched, <code class="docutils literal notranslate"><span class="pre">data</span></code> will be an empty array. If <code class="docutils literal notranslate"><span class="pre">name</span></code> is missing or a parameter is invalid, a <code class="docutils literal notranslate"><span class="pre">422</span></code>
+response with validation errors will be returned.</p>
+</section>
+</section>
 <section id="create-an-image-set">
 <h2>Create an image set<a class="headerlink" href="#create-an-image-set" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">collections</span><span class="o">/</span><span class="p">{</span><span class="n">collection_id</span><span class="p">}</span><span class="o">/</span><span class="n">image</span><span class="o">-</span><span class="n">sets</span>
 </pre></div>
 </div>
 <p>Create an image set in a collection.</p>
-<section id="id2">
-<h3>URL parameters<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h3>URL parameters<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collection_id</span></code>: The ID of the collection.</p></li>
 </ul>
@@ -515,8 +562,8 @@ permission names which the current user has on the image set. The permission nam
 <li><p><code class="docutils literal notranslate"><span class="pre">image_ids</span></code>: An array of IDs of the images which should be added to the image set.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3>Response<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>Response<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>The image set object of the newly created image set.</p>
 </section>
 </section>
@@ -526,15 +573,15 @@ permission names which the current user has on the image set. The permission nam
 </pre></div>
 </div>
 <p>Get an image set by its ID.</p>
-<section id="id4">
-<h3>URL parameters<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<section id="id5">
+<h3>URL parameters<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collection_id</span></code>: The ID of the collection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image set.</p></li>
 </ul>
 </section>
-<section id="id5">
-<h3>Response<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<section id="id6">
+<h3>Response<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <p>The image set object of the queried image set.</p>
 </section>
 </section>
@@ -544,15 +591,15 @@ permission names which the current user has on the image set. The permission nam
 </pre></div>
 </div>
 <p>Update an image set by its ID.</p>
-<section id="id6">
-<h3>URL parameters<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<section id="id7">
+<h3>URL parameters<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collection_id</span></code>: The ID of the collection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image set.</p></li>
 </ul>
 </section>
-<section id="id7">
-<h3>Request<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<section id="id8">
+<h3>Request<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an image set object used to update the image set. Read only properties will be ignored.</p>
 <p>It also accepts a few additional properties in the image set object:</p>
 <ul class="simple">
@@ -562,8 +609,8 @@ permission names which the current user has on the image set. The permission nam
 is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the image set will be unpublished.</p></li>
 </ul>
 </section>
-<section id="id8">
-<h3>Response<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<section id="id9">
+<h3>Response<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <p>The image set object after the update.</p>
 </section>
 </section>
@@ -573,15 +620,15 @@ is set to <code class="docutils literal notranslate"><span class="pre">false</sp
 </pre></div>
 </div>
 <p>Delete an image set by its ID.</p>
-<section id="id9">
-<h3>URL parameters<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<section id="id10">
+<h3>URL parameters<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collection_id</span></code>: The ID of the collection.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the image set.</p></li>
 </ul>
 </section>
-<section id="id10">
-<h3>Response<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<section id="id11">
+<h3>Response<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
 <p>The image set object of the deleted image set.</p>
 </section>
 </section>
@@ -591,21 +638,21 @@ is set to <code class="docutils literal notranslate"><span class="pre">false</sp
 </pre></div>
 </div>
 <p>Import images from a IIIF manifest to an image set in a collection.</p>
-<section id="id11">
-<h3>URL parameters<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<section id="id12">
+<h3>URL parameters<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">collection_id</span></code>: The ID of the collection.</p></li>
 </ul>
 </section>
-<section id="id12">
-<h3>Request<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
+<section id="id13">
+<h3>Request<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an object with the following properties:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">manifest</span></code>: The URL of the IIIF manifest.</p></li>
 </ul>
 </section>
-<section id="id13">
-<h3>Response<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h3>
+<section id="id14">
+<h3>Response<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h3>
 <p>The image set object created from the IIIF manifest.</p>
 </section>
 </section>
@@ -680,32 +727,37 @@ is set to <code class="docutils literal notranslate"><span class="pre">false</sp
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-image-sets-by-name">Search image sets by name</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-parameters">Query parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Response</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-image-set">Create an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">URL parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-an-image-set">Get an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-image-set">Update an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-image-set">Delete an image set</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-iiif-manifest">Import IIIF manifest</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">URL parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Request</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Response</a></li>
 </ul>
 </li>
 </ul>
