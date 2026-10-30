@@ -410,14 +410,19 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-association">Image association</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">URL parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -503,7 +508,9 @@ For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#container-retrieval">Web Annotation Protocol</a> specification.</p>
 <p>By default, all annotations from the annotation set will be under a single annotation page, which can improve the
 loading performance. If the <code class="docutils literal notranslate"><span class="pre">pageby</span></code> query parameter is set to <code class="docutils literal notranslate"><span class="pre">canvas</span></code>, the annotations will be grouped into pages by
-each canvas.</p>
+each canvas. For annotations without an <code class="docutils literal notranslate"><span class="pre">image_id</span></code>, pages are grouped by the source URI, extracted from either
+a URI string or an identified source object. A <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code> target’s own <code class="docutils literal notranslate"><span class="pre">id</span></code> is not used as its source
+grouping key. Whole-image and region annotations for the same associated image appear on the same image page.</p>
 <section id="id4">
 <h3>URL parameters<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
@@ -527,6 +534,9 @@ specification.</p>
 Glycerine Server, or the MD5 hash of the annotation target URI. Or if it is set to <code class="docutils literal notranslate"><span class="pre">all</span></code>, all annotations in the
 annotation set will be returned.</p></li>
 </ul>
+<p>For targets without a local image association, hash the normalized source URI, not the serialized target
+object or a <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code> target’s own <code class="docutils literal notranslate"><span class="pre">id</span></code>. If a rectangular URI fragment was normalized into a selector,
+use the source URI without that fragment. Follow the collection/page links returned by the server when possible.</p>
 </section>
 </section>
 <section id="get-the-annotation">
@@ -556,6 +566,45 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation set.</p></li>
 </ul>
 </section>
+<section id="request">
+<h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h3>
+<p>Send a Web Annotation object with:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: (required) <code class="docutils literal notranslate"><span class="pre">Annotation</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code>: (required) An array of annotation bodies. An empty array is accepted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generator</span></code>: (required on creation) The URI identifying an existing annotation template, ending in
+<code class="docutils literal notranslate"><span class="pre">/annotation-template/{publication_id}</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: (required) One of the <a class="reference internal" href="../1.%20Server%20API/8.%20Annotations.html#annotation-target"><span class="std std-ref">supported annotation target inputs</span></a>. A selector is optional.</p></li>
+</ul>
+<p>Example of a whole-image annotation (replace the illustrative target and template URIs):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Annotation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;generator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/publications/annotation-template/template-id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The same target normalization and validation rules apply to REST and IIIF writes. A valid target is saved as
+a <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code> object. URI rectangles become FragmentSelectors; selectorless targets remain selectorless.</p>
+</section>
+<section id="image-association">
+<h3>Image association<a class="headerlink" href="#image-association" title="Permalink to this heading">#</a></h3>
+<p>IIIF creation resolves <code class="docutils literal notranslate"><span class="pre">image_id</span></code> from the normalized source. URI strings, identified resource objects, and
+source-based targets with string or identified-object sources use the same resolution rules.</p>
+<p>An image is associated only when the source exactly matches the server-generated Canvas URI for an image
+belonging to the annotation set’s image set. A foreign URL with the same <code class="docutils literal notranslate"><span class="pre">/iiif/canvas/{id}</span></code> suffix is not
+treated as a local image. Valid external targets, unmatched Canvas URIs, and targets in standalone annotation
+sets retain a null <code class="docutils literal notranslate"><span class="pre">image_id</span></code>. No image ID needs to be supplied in the IIIF request.</p>
+<p>When associated, <code class="docutils literal notranslate"><span class="pre">image_id</span></code> determines the Canvas source in IIIF output.</p>
+</section>
+<section id="id8">
+<h3>Response<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<p>HTTP <code class="docutils literal notranslate"><span class="pre">201</span></code> with the created Web Annotation representation. The normalized target may differ in shape from the
+submitted target. The response includes <code class="docutils literal notranslate"><span class="pre">Location</span></code> and <code class="docutils literal notranslate"><span class="pre">ETag</span></code> headers.</p>
+<p>Invalid annotation format, target, or template returns HTTP <code class="docutils literal notranslate"><span class="pre">400</span></code> with a <code class="docutils literal notranslate"><span class="pre">message</span></code>. Invalid targets are rejected
+before saving the annotation or changing fields and tags.</p>
+</section>
 </section>
 <section id="update-an-annotation">
 <h2>Update an annotation<a class="headerlink" href="#update-an-annotation" title="Permalink to this heading">#</a></h2>
@@ -564,11 +613,28 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </div>
 <p>Update an annotation. For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#update-an-existing-annotation">Web Annotation Protocol</a> specification.</p>
-<section id="id8">
-<h3>URL parameters<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h3>
+<section id="id9">
+<h3>URL parameters<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
+</section>
+<section id="id10">
+<h3>Request<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
+<p>Send a Web Annotation object with <code class="docutils literal notranslate"><span class="pre">type:</span> <span class="pre">&quot;Annotation&quot;</span></code>, a <code class="docutils literal notranslate"><span class="pre">body</span></code> array, and a required <code class="docutils literal notranslate"><span class="pre">target</span></code>, using the
+<a class="reference internal" href="../1.%20Server%20API/8.%20Annotations.html#annotation-target"><span class="std std-ref">same target formats and validation rules</span></a> as creation. Include the template <code class="docutils literal notranslate"><span class="pre">generator</span></code>
+when sending template field bodies.</p>
+<p>Unlike a REST partial update, an IIIF update requires the target on every request. The target is normalized and
+the local image association is resolved again using the same rules as IIIF creation. Invalid targets are
+rejected before changing the annotation, fields, or tags.</p>
+<p>The update replaces the annotation’s fields and tags using the supplied bodies; send the complete bodies you
+want to retain.</p>
+</section>
+<section id="id11">
+<h3>Response<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
+<p>HTTP <code class="docutils literal notranslate"><span class="pre">201</span></code> with the updated Web Annotation representation and an <code class="docutils literal notranslate"><span class="pre">ETag</span></code> header. This endpoint currently returns
+<code class="docutils literal notranslate"><span class="pre">201</span></code> on successful updates as well as creation.</p>
+<p>Missing or invalid targets return HTTP <code class="docutils literal notranslate"><span class="pre">400</span></code> with a <code class="docutils literal notranslate"><span class="pre">message</span></code>.</p>
 </section>
 </section>
 <section id="delete-an-annotation">
@@ -578,8 +644,8 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </div>
 <p>Delete an annotation. For more details about the request and response, please refer to the
 <a class="reference external" href="https://www.w3.org/TR/annotation-protocol/#delete-an-existing-annotation">Web Annotation Protocol</a> specification.</p>
-<section id="id9">
-<h3>URL parameters<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
+<section id="id12">
+<h3>URL parameters<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: The ID of the annotation.</p></li>
 </ul>
@@ -669,14 +735,19 @@ to the <a class="reference external" href="https://www.w3.org/TR/annotation-prot
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-annotation">Create an annotation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-association">Image association</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-an-annotation">Update an annotation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Response</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-an-annotation">Delete an annotation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">URL parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">URL parameters</a></li>
 </ul>
 </li>
 </ul>
