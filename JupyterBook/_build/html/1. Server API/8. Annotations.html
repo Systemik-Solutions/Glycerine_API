@@ -384,7 +384,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-object">Annotation object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-image-annotations">Whole-image annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalized-target-representation">Normalized target representation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region-annotations">Region annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-validation-errors">Target validation errors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
 </ul>
@@ -457,18 +463,120 @@ document.write(`
 </section>
 <section id="annotation-target">
 <span id="id2"></span><h2>Annotation target<a class="headerlink" href="#annotation-target" title="Permalink to this heading">#</a></h2>
-<p>The target of an annotation is an object specified in the Web Annotation standard. For more information, please refer
-to the <a class="reference external" href="https://www.w3.org/TR/annotation-model/#specific-resources">Web Annotation Data Model</a>.</p>
-<p>Example:</p>
+<p>The REST and IIIF annotation write endpoints accept a single target in any of the forms below. Targets are
+validated and normalized to a source-based <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code> object before saving. This API supports the
+<a class="reference external" href="https://www.w3.org/TR/annotation-model/#specific-resources">Web Annotation target model</a> with the restrictions
+described here.</p>
+<section id="whole-image-annotations">
+<h3>Whole-image annotations<a class="headerlink" href="#whole-image-annotations" title="Permalink to this heading">#</a></h3>
+<p>To annotate an entire image, identify its Canvas and omit <code class="docutils literal notranslate"><span class="pre">selector</span></code>. A full-image rectangle is unnecessary.
+The target itself is still required; <code class="docutils literal notranslate"><span class="pre">target:</span> <span class="pre">null</span></code> and <code class="docutils literal notranslate"><span class="pre">selector:</span> <span class="pre">null</span></code> are invalid.</p>
+<p>The following are equivalent whole-Canvas target inputs. Each example is the value of the annotation’s <code class="docutils literal notranslate"><span class="pre">target</span></code>
+property, not a complete request:</p>
+<p>URI string:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span>
+</pre></div>
+</div>
+<p>Identified resource object:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/iiif/canvas/1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SvgSelector&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;svg&gt;&lt;polygon points=\&quot;14463.65625,8689.75 15475.2490234375,8424.4140625 16550.326171875,10613.435546875 16384.490234375,11525.52734375 15721.1513671875,12006.44921875 15820.65234375,10812.4375 15173.8955078125,10248.5986328125 15207.0625,11193.857421875 14775.892578125,10928.521484375 14742.7255859375,10331.515625\&quot;&gt;&lt;/polygon&gt;&lt;/svg&gt;&quot;</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Canvas&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Source-based target:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Target with an identified source object:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Canvas&quot;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>The URLs and IDs in these examples are illustrative. For an image hosted by Glycerine, use the actual Canvas
+URI returned by the server.</p>
+<p>For source-based targets, <code class="docutils literal notranslate"><span class="pre">type</span></code> may be omitted; if supplied, it must be <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code>. Its own optional
+<code class="docutils literal notranslate"><span class="pre">id</span></code> identifies the specific resource, while <code class="docutils literal notranslate"><span class="pre">source</span></code> identifies the resource being annotated. An
+<code class="docutils literal notranslate"><span class="pre">id</span></code> on a <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code> does not replace its required <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
+</section>
+<section id="normalized-target-representation">
+<h3>Normalized target representation<a class="headerlink" href="#normalized-target-representation" title="Permalink to this heading">#</a></h3>
+<p>A URI string is saved as:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An identified resource object is wrapped as the <code class="docutils literal notranslate"><span class="pre">source</span></code> of a <code class="docutils literal notranslate"><span class="pre">SpecificResource</span></code>. An existing identified source
+object is retained, including its metadata. Consequently, the normalized <code class="docutils literal notranslate"><span class="pre">source</span></code> may be a URI string or an
+object with an <code class="docutils literal notranslate"><span class="pre">id</span></code>; clients should not assume it is always a string. Compatible target properties such as
+<code class="docutils literal notranslate"><span class="pre">styleClass</span></code> and selectors are preserved during normalization.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">image_id</span></code> is available, IIIF representations use that image’s Canvas URI as <code class="docutils literal notranslate"><span class="pre">target.source</span></code>; publication
+representations continue to use their applicable public Canvas URI. The image association is authoritative
+even if the submitted source differs.</p>
+</section>
+<section id="region-annotations">
+<h3>Region annotations<a class="headerlink" href="#region-annotations" title="Permalink to this heading">#</a></h3>
+<p>Use a source-based target with a selector to annotate a region. For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SvgSelector&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;svg&gt;&lt;polygon points=\&quot;10,10 100,10 100,100 10,100\&quot;&gt;&lt;/polygon&gt;&lt;/svg&gt;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The supported selector types are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FragmentSelector</span></code>: requires a nonempty string <code class="docutils literal notranslate"><span class="pre">value</span></code>, for example <code class="docutils literal notranslate"><span class="pre">xywh=pixel:10,20,100,200</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SvgSelector</span></code>: requires a nonempty inline string <code class="docutils literal notranslate"><span class="pre">value</span></code> or an absolute HTTP(S) <code class="docutils literal notranslate"><span class="pre">id</span></code> identifying the SVG.</p></li>
+</ul>
+<p>Selector validation checks this structure; it does not perform full SVG or Web Annotation validation. Other
+selector types, empty or null selectors, and selector arrays are rejected. Put selectors on a source-based
+target rather than directly on an identified resource object.</p>
+<p>A rectangular fragment on a target URI is also accepted, for example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42#xywh=10,20,100,200&quot;</span>
+</pre></div>
+</div>
+<p>Before saving, the fragment is removed from the source URI and becomes:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FragmentSelector&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xywh=10,20,100,200&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;conformsTo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://www.w3.org/TR/media-frags/&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>URI rectangle fragments accept default units, <code class="docutils literal notranslate"><span class="pre">pixel:</span></code>, or <code class="docutils literal notranslate"><span class="pre">percent:</span></code>. Coordinates must be nonnegative and
+width and height must be positive. Percentage rectangles must fit within 100 percent in each dimension.
+Other URI fragments, including <code class="docutils literal notranslate"><span class="pre">#t=...</span></code>, are rejected. A URI fragment and an explicit selector cannot be supplied
+together. A URI containing <code class="docutils literal notranslate"><span class="pre">#xywh=...</span></code> still describes a region even though the input has no <code class="docutils literal notranslate"><span class="pre">selector</span></code> property.
+IIIF output removes the <code class="docutils literal notranslate"><span class="pre">pixel:</span></code> prefix from FragmentSelector values.</p>
+<p>To replace a region with a whole-image target, submit a replacement source-based target without a selector or
+URI fragment.</p>
+</section>
+<section id="target-validation-errors">
+<h3>Target validation errors<a class="headerlink" href="#target-validation-errors" title="Permalink to this heading">#</a></h3>
+<p>The resource URI must be a nonempty absolute HTTP(S) URI. Missing required targets, empty objects, relative or
+non-HTTP(S) URIs, scalar values other than URI strings, target arrays, and malformed selectors are rejected.
+Invalid targets are rejected before the annotation, its fields, or its tags are changed.</p>
+<p>REST create/update requests return HTTP <code class="docutils literal notranslate"><span class="pre">422</span></code> with an <code class="docutils literal notranslate"><span class="pre">errors.target</span></code> entry for target validation failures.
+IIIF create/update requests return HTTP <code class="docutils literal notranslate"><span class="pre">400</span></code> with a <code class="docutils literal notranslate"><span class="pre">message</span></code> instead.</p>
+</section>
 </section>
 <section id="annotation-fields">
 <span id="id3"></span><h2>Annotation fields<a class="headerlink" href="#annotation-fields" title="Permalink to this heading">#</a></h2>
@@ -691,10 +799,28 @@ information of the term. For example:</p></li>
 <section id="request">
 <h3>Request<a class="headerlink" href="#request" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an annotation object used to create a new annotation. Read only properties will be ignored.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">annotation_type_id</span></code>: (required) Integer ID of the annotation template.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target</span></code>: (required) One of the <span class="xref myst">supported target inputs</span>, with or without a selector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_id</span></code>: Optional integer image association. REST creation uses this explicit value; it does not infer an
+image ID from the target URI. Omit it for a target without a local image association.</p></li>
+</ul>
+<p>Example of a whole-image annotation (using illustrative IDs):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;annotation_type_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;image_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SpecificResource&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://glycerine.example/api/iiif/canvas/42&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A missing or invalid target returns HTTP <code class="docutils literal notranslate"><span class="pre">422</span></code> before creation.</p>
 </section>
 <section id="id6">
 <h3>Response<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
-<p>The annotation object of the newly created annotation.</p>
+<p>HTTP <code class="docutils literal notranslate"><span class="pre">200</span></code> with the annotation object of the newly created annotation, including its normalized target.</p>
 </section>
 </section>
 <section id="get-an-annotation">
@@ -731,10 +857,14 @@ information of the term. For example:</p></li>
 <section id="id10">
 <h3>Request<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h3>
 <p>The request body should be an annotation object used to update the annotation. Read only properties will be ignored.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">target</span></code> is supplied, it must be a valid <span class="xref myst">supported target input</span> and is normalized before
+saving. If omitted, the existing target is unchanged. An explicit <code class="docutils literal notranslate"><span class="pre">null</span></code> target is invalid and returns HTTP <code class="docutils literal notranslate"><span class="pre">422</span></code>.</p>
+<p>Updating <code class="docutils literal notranslate"><span class="pre">target</span></code> does not change or infer <code class="docutils literal notranslate"><span class="pre">image_id</span></code>. Submitting <code class="docutils literal notranslate"><span class="pre">image_id</span></code> to this REST update endpoint does not
+reassign the annotation to another image.</p>
 </section>
 <section id="id11">
 <h3>Response<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h3>
-<p>The annotation object after the update.</p>
+<p>HTTP <code class="docutils literal notranslate"><span class="pre">200</span></code> with the annotation object after the update.</p>
 </section>
 </section>
 <section id="delete-an-annotation">
@@ -852,7 +982,13 @@ information of the term. For example:</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-object">Annotation object</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-target">Annotation target</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whole-image-annotations">Whole-image annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalized-target-representation">Normalized target representation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region-annotations">Region annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-validation-errors">Target validation errors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotation-fields">Annotation fields</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#language-codes">Language codes</a></li>
 </ul>
