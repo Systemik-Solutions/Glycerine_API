@@ -133,3 +133,4 @@ jobs:
         github_token: ${{ secrets.MY_GITHUB_TOKEN }}
         publish_dir: ./JupyterBook/_build/html
         publish_branch: gh-pages
+        cname: api-docs.glycerine.io
